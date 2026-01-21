@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Discussion 02 Performance Dashboard | CMPA 3301&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Tailwind CSS --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Chart.js --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.jsdelivr.net/npm/chart.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Google Fonts --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>tailwind.config = {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>theme: {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>extend: {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>fontFamily: { sans: ['Inter', 'sans-serif'] },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>colors: {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>brand: {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>50: '#f0f9ff',</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>100: '#e0f2fe',</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>500: '#0ea5e9',</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>600: '#0284c7',</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>800: '#075985',</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>900: '#0c4a6e',</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>accent: '#f97316',</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Palette Selection: Brilliant Blues */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body { background-color: #f0f9ff; color: #0f172a; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card { background-color: white; border-radius: 1.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); transition: transform 0.2s; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.chart-container { position: relative; width: 100%; max-width: 600px; margin: auto; height: 320px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@media (min-width: 768px) { .chart-container { height: 350px; } }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.status-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Redaction Styling for Inactive Students */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.redacted {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #0f172a;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #0f172a;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>user-select: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: default;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 2px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="antialiased p-4 md:p-8"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="max-w-6xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Header --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;header class="bg-gradient-to-br from-brand-900 via-brand-800 to-brand-600 text-white p-10 rounded-[2.5rem] shadow-2xl mb-12 relative overflow-hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="relative z-10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-brand-100 font-bold uppercase tracking-widest text-xs mb-3"&gt;CMPA 3301 | Module 01 Analytics&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h1 class="text-4xl md:text-5xl font-black mb-3 tracking-tighter"&gt;The Power of Range&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-brand-50 opacity-90 max-w-xl text-sm leading-relaxed"&gt;A finalized analysis of performance for Discussion 02. This module explored David Epstein's concept of the "Sampling Period" and how it prepares generalists for technical success.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="absolute right-0 bottom-0 p-8 opacity-10 text-9xl font-black"&gt;D02&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- KPI Metrics Grid --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card p-6 border-b-8 border-brand-500 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-gray-400 font-bold uppercase text-[10px] tracking-widest mb-1"&gt;Class Average&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-4xl font-black text-brand-900"&gt;17.1&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-[10px] text-green-600 font-bold mt-1 uppercase"&gt;Active Mean&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card p-6 border-b-8 border-brand-accent text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-gray-400 font-bold uppercase text-[10px] tracking-widest mb-1"&gt;Perfect Scores&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-4xl font-black text-brand-accent"&gt;5&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-[10px] text-brand-800 font-bold mt-1 uppercase"&gt;20/20 Achievement&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card p-6 border-b-8 border-brand-600 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-gray-400 font-bold uppercase text-[10px] tracking-widest mb-1"&gt;Active Participation&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-4xl font-black text-brand-600"&gt;42&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-[10px] text-brand-600 font-bold mt-1 uppercase"&gt;Students Engaged&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card p-6 border-b-8 border-red-500 text-center text-red-600"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-gray-400 font-bold uppercase text-[10px] tracking-widest mb-1"&gt;Inactive Check&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-4xl font-black"&gt;17&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-[10px] font-bold mt-1 uppercase"&gt;Requiring Outreach&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Data Charts Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section class="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Grade Distribution --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card p-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h2 class="text-xl font-black text-brand-900"&gt;Regrade Distribution&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-xs text-gray-500 mt-1"&gt;Scores following the outage waiver and full data synthesis.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="chart-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;canvas id="gradeChart"&gt;&lt;/canvas&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="mt-6 p-4 bg-brand-50 rounded-xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-[11px] text-brand-900 italic leading-relaxed"&gt;&lt;strong&gt;Insight:&lt;/strong&gt; 93% of active students achieved a passing score (15+) by identifying clear transferable skills from their personal backgrounds.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Career Samples Identified --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card p-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h2 class="text-xl font-black text-brand-900"&gt;Top Career Samples&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-xs text-gray-500 mt-1"&gt;Common "unrelated" domains students used to define their Range.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="chart-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;canvas id="careerChart"&gt;&lt;/canvas&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="mt-6 p-4 bg-brand-50 rounded-xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-[11px] text-brand-900 italic leading-relaxed"&gt;&lt;strong&gt;Insight:&lt;/strong&gt; Military service remains the dominant "sample" period, providing high levels of team-ops and leadership discipline.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Qualitative Summary &amp; Inactive List --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Summary Point 1 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card p-8 border-l-[12px] border-brand-accent"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="font-black text-brand-900 uppercase text-xs tracking-widest mb-4 italic underline decoration-brand-accent"&gt;The "Outage" Waiver Impact&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-sm text-gray-600 leading-relaxed"&gt;Removing late penalties for initial posts increased the class average by **2.3 points**. Students like Gaines and Plair demonstrated that high-quality synthesis is possible even with technical barriers.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Summary Point 2 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card p-8 border-l-[12px] border-brand-800"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="font-black text-brand-900 uppercase text-xs tracking-widest mb-4 italic underline decoration-brand-800"&gt;Key Bridged Skills&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;ul class="text-xs space-y-3 font-medium text-brand-900"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="flex items-center gap-2"&gt;&lt;span class="status-dot bg-brand-500"&gt;&lt;/span&gt; Discipline (Military/Sports)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="flex items-center gap-2"&gt;&lt;span class="status-dot bg-brand-600"&gt;&lt;/span&gt; Troubleshooting (Gaming/IT)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="flex items-center gap-2"&gt;&lt;span class="status-dot bg-brand-accent"&gt;&lt;/span&gt; Patience (Art/Crochet/Parenting)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Inactive Tracking --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card p-8 bg-brand-900 text-white shadow-xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="font-black text-brand-100 uppercase text-[10px] tracking-widest mb-4"&gt;Inactive Monitoring&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-[11px] opacity-70 mb-4 leading-relaxed"&gt;The following students (from selected roster) have recorded zero activity for Discussion 02:&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white/10 p-3 rounded-lg border border-white/20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-[9px] font-mono leading-relaxed tracking-tighter opacity-90"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="redacted"&gt;Ambriz,&lt;/span&gt; &lt;span class="redacted"&gt;Beaver,&lt;/span&gt; &lt;span class="redacted"&gt;Fuentes,&lt;/span&gt; &lt;span class="redacted"&gt;Garcia,&lt;/span&gt; &lt;span class="redacted"&gt;Mondragon,&lt;/span&gt; &lt;span class="redacted"&gt;Padilla,&lt;/span&gt; &lt;span class="redacted"&gt;Patterson,&lt;/span&gt; &lt;span class="redacted"&gt;Pendleton,&lt;/span&gt; &lt;span class="redacted"&gt;Ray,&lt;/span&gt; &lt;span class="redacted"&gt;Rowland,&lt;/span&gt; &lt;span class="redacted"&gt;Sartain,&lt;/span&gt; &lt;span class="redacted"&gt;Styers,&lt;/span&gt; &lt;span class="redacted"&gt;Swedat,&lt;/span&gt; &lt;span class="redacted"&gt;Taylor,&lt;/span&gt; &lt;span class="redacted"&gt;Villalobos,&lt;/span&gt; &lt;span class="redacted"&gt;Wilson,&lt;/span&gt; &lt;span class="redacted"&gt;Wise.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="mt-4 flex items-center justify-between"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="text-[10px] font-bold text-brand-accent"&gt;Total Inactive: 17&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="text-[9px] px-2 py-1 bg-red-500 rounded font-bold uppercase tracking-tighter"&gt;Needs Outreach&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Footer --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;footer class="text-center pb-20 pt-10 border-t border-brand-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-[10px] text-gray-400 font-black tracking-widest uppercase mb-4 opacity-50"&gt;No SVG or Mermaid JS used in this report&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-xs text-gray-400 font-medium tracking-widest uppercase"&gt;Texas Tech University &amp;bull; CMPA 3301 &amp;bull; Spring 2026&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Label Wrapping Logic (16 char)</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function wrap(str, max = 16) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (str.length &lt;= max) return str;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const words = str.split(' ');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const lines = [];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let cur = words[0];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>for (let i = 1; i &lt; words.length; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if ((cur + ' ' + words[i]).length &lt;= max) { cur += ' ' + words[i]; }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>else { lines.push(cur); cur = words[i]; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>lines.push(cur);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>return lines;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const commonTT = {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>callbacks: {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>title: function(items) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const lab = items[0].chart.data.labels[items[0].dataIndex];</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>return Array.isArray(lab) ? lab.join(' ') : lab;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Grade Distribution Chart</p>
+<p class="p1"><span class="Apple-converted-space">        </span>new Chart(document.getElementById('gradeChart'), {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>type: 'bar',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>data: {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>labels: ['9 Points (Missing Replies)', '14 Points (Minor Issues)', '15-18 Points (Adequate)', '19-20 Points (Above &amp; Beyond)'].map(l =&gt; wrap(l)),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>datasets: [{</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>label: 'Active Students',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>data: [2, 1, 28, 11],</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>backgroundColor: ['#ef4444', '#f97316', '#0ea5e9', '#0284c7'],</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>borderRadius: 12</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>options: {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>responsive: true, maintainAspectRatio: false,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>plugins: { legend: { display: false }, tooltip: commonTT },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>scales: { y: { beginAtZero: true, grid: { display: false } }, x: { grid: { display: false } } }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Career Samples Chart</p>
+<p class="p1"><span class="Apple-converted-space">        </span>new Chart(document.getElementById('careerChart'), {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>type: 'doughnut',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>data: {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>labels: ['Military Ops', 'Hospitality/Service', 'Arts &amp; Crafts', 'Parenting &amp; Household', 'Technical Hobbies'].map(l =&gt; wrap(l)),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>datasets: [{</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>data: [35, 25, 15, 15, 10],</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>backgroundColor: ['#0c4a6e', '#075985', '#0ea5e9', '#f97316', '#38bdf8'],</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>borderWidth: 0,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>hoverOffset: 15</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>options: {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>responsive: true, maintainAspectRatio: false,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>plugins: {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10, weight: 'bold' } }},</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>tooltip: commonTT</p>
+<p class="p1"><span class="Apple-converted-space">                </span>},</p>
+<p class="p1"><span class="Apple-converted-space">                </span>cutout: '70%'</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
