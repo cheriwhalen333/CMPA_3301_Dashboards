@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion 05 Analytics | Version Control & Accountability</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            accent: '#f97316',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #f0f9ff; color: #0f172a; }
+        .card { background-color: white; border-radius: 1.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); transition: transform 0.2s; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .chart-container { position: relative; width: 100%; max-width: 600px; margin: auto; height: 320px; }
+        .redacted { background-color: #0f172a; color: #0f172a; user-select: none; border-radius: 2px; padding: 0 2px; cursor: help; }
+        .quote-card { border-left: 8px solid #f97316; background-color: #f8fafc; }
+    </style>
+</head>
+<body class="antialiased p-4 md:p-8">
+
+    <div class="max-w-6xl mx-auto">
+        <!-- Header Section -->
+        <header class="bg-gradient-to-br from-brand-900 via-brand-800 to-brand-600 text-white p-10 rounded-[2.5rem] shadow-2xl mb-12 relative overflow-hidden">
+            <div class="relative z-10">
+                <p class="text-brand-100 font-bold uppercase tracking-widest text-xs mb-3">CMPA 3301 | Module 05 Analytics</p>
+                <h1 class="text-4xl md:text-5xl font-black mb-3 tracking-tighter">Accountability & Version Control</h1>
+                <p class="text-brand-50 opacity-90 max-w-2xl text-sm leading-relaxed">Analyzing how the cohort identifies digital project failures and applies the "Cadence of Accountability" (PMUPM Ch 5) to technical workflows using tools like GitHub.</p>
+            </div>
+            <div class="absolute right-0 bottom-0 p-8 opacity-10 text-9xl font-black hidden lg:block">GIT</div>
+        </header>
+
+        <!-- KPI Metrics Grid -->
+        <section class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+            <div class="card p-6 border-b-8 border-brand-500 text-center">
+                <h3 class="text-gray-400 font-bold uppercase text-[10px] tracking-widest mb-1">Class Average</h3>
+                <p class="text-4xl font-black text-brand-900">15.2</p>
+                <p class="text-[10px] text-brand-600 mt-1 uppercase font-bold tracking-tighter">Impacted by Citations</p>
+            </div>
+            <div class="card p-6 border-b-8 border-brand-accent text-center">
+                <h3 class="text-gray-400 font-bold uppercase text-[10px] tracking-widest mb-1">Perfect Scores</h3>
+                <p class="text-4xl font-black text-brand-accent">7</p>
+                <p class="text-[10px] text-brand-800 mt-1 uppercase font-bold tracking-tighter">20/20 Exemplary</p>
+            </div>
+            <div class="card p-6 border-b-8 border-brand-600 text-center">
+                <h3 class="text-gray-400 font-bold uppercase text-[10px] tracking-widest mb-1">Participation</h3>
+                <p class="text-4xl font-black text-brand-600">45</p>
+                <p class="text-[10px] text-brand-600 mt-1 uppercase font-bold tracking-tighter">Active Students</p>
+            </div>
+            <div class="card p-6 border-b-8 border-red-500 text-center text-red-600">
+                <h3 class="text-gray-400 font-bold uppercase text-[10px] tracking-widest mb-1">Citation Gap</h3>
+                <p class="text-4xl font-black">45%</p>
+                <p class="text-[10px] font-bold mt-1 uppercase tracking-tighter">Missed APA Standards</p>
+            </div>
+        </section>
+
+        <!-- The Voices of the Unofficial PM -->
+        <section class="mb-16">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-black text-brand-900 tracking-tight">Voices of the Unofficial PM</h2>
+                <p class="text-gray-500 mt-2">These students identified key connections between accountability habits and technical productivity.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card p-8 quote-card">
+                    <p class="text-sm text-gray-700 italic mb-4">"GitHub shows exactly what was changed in VSCode... my productivity has shot up since I can go back and see exactly what I did the last time I touched a project."</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-black text-brand-900 uppercase text-xs">Jon</span>
+                        <span class="text-[10px] bg-brand-100 text-brand-800 px-2 py-1 rounded font-bold">Productivity Gain</span>
+                    </div>
+                </div>
+
+                <div class="card p-8 quote-card">
+                    <p class="text-sm text-gray-700 italic mb-4">"It is not about saving files, it is about making changes visible so the team can trust what they are looking at... One branch per task fixes it."</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-black text-brand-900 uppercase text-xs">Zerrie</span>
+                        <span class="text-[10px] bg-brand-100 text-brand-800 px-2 py-1 rounded font-bold">Trust via Visibility</span>
+                    </div>
+                </div>
+
+                <div class="card p-8 quote-card">
+                    <p class="text-sm text-gray-700 italic mb-4">"Unlike Google Docs where edits feel anonymous, GitHub’s commit history shows exactly who is putting in work... that transparency makes people stay on top of tasks."</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-black text-brand-900 uppercase text-xs">Greg</span>
+                        <span class="text-[10px] bg-brand-100 text-brand-800 px-2 py-1 rounded font-bold">Radical Transparency</span>
+                    </div>
+                </div>
+
+                <div class="card p-8 quote-card">
+                    <p class="text-sm text-gray-700 italic mb-4">"Agile ceremonies like daily standups would have set clear expectations of objectives and given members a chance to share concerns, which we failed to do."</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-black text-brand-900 uppercase text-xs">William</span>
+                        <span class="text-[10px] bg-brand-100 text-brand-800 px-2 py-1 rounded font-bold">Expectation Setting</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
+            <div class="card p-8">
+                <div class="mb-8">
+                    <h2 class="text-xl font-black text-brand-900 tracking-tight underline decoration-brand-accent">Score Distribution</h2>
+                    <p class="text-xs text-gray-500 mt-1">Scores categorized by technical accuracy and scoping adherence.</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="gradeChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card p-8">
+                <div class="mb-8">
+                    <h2 class="text-xl font-black text-brand-900 tracking-tight underline decoration-brand-accent">Improvement Opportunities</h2>
+                    <p class="text-xs text-gray-500 mt-1">Analyzing the primary causes of point deductions this week.</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="issueChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wall of Fame & Improvement Zone -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="card bg-brand-900 p-8 text-white shadow-2xl relative overflow-hidden">
+                <h3 class="text-xl font-black mb-6 uppercase tracking-widest text-brand-accent italic underline decoration-white">Wall of Fame: Exemplary</h3>
+                <div class="grid grid-cols-2 gap-2 text-sm font-semibold">
+                    <div class="bg-white/10 px-3 py-2 rounded">Aryan</div>
+                    <div class="bg-white/10 px-3 py-2 rounded">Greg</div>
+                    <div class="bg-white/10 px-3 py-2 rounded">John</div>
+                    <div class="bg-white/10 px-3 py-2 rounded">Jon</div>
+                    <div class="bg-white/10 px-3 py-2 rounded">Kyle</div>
+                    <div class="bg-white/10 px-3 py-2 rounded">Marisol</div>
+                    <div class="bg-white/10 px-3 py-2 rounded">Stephanie</div>
+                </div>
+                <p class="mt-6 text-[10px] opacity-60 italic leading-tight">These students mastered the prompt, word counts, and citations perfectly.</p>
+            </div>
+
+            <div class="card border-2 border-brand-900 p-8 bg-brand-50 shadow-xl">
+                <h3 class="text-xl font-black mb-6 uppercase tracking-widest text-brand-900">The Improvement Zone</h3>
+                <p class="text-xs text-gray-600 mb-4 leading-relaxed">The following students received an **Incomplete** or **Developing** status for Discussion 05. Common issues: missing peer replies, missing citations, or scoping failures.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="redacted text-[10px]">Arellano,</span>
+                    <span class="redacted text-[10px]">Beifus,</span>
+                    <span class="redacted text-[10px]">Cosby,</span>
+                    <span class="redacted text-[10px]">Diaz,</span>
+                    <span class="redacted text-[10px]">Haywood,</span>
+                    <span class="redacted text-[10px]">Iftikhar,</span>
+                    <span class="redacted text-[10px]">Jarvis,</span>
+                    <span class="redacted text-[10px]">Mondragon,</span>
+                    <span class="redacted text-[10px]">Montemayor,</span>
+                    <span class="redacted text-[10px]">Winston,</span>
+                    <span class="redacted text-[10px]">Wittie.</span>
+                </div>
+                <p class="mt-6 text-[10px] text-brand-600 font-bold uppercase tracking-tighter animate-pulse">Action Required: Check individual Canvas feedback</p>
+            </div>
+        </section>
+
+        <!-- APA Citation Warning -->
+        <section class="mb-20">
+            <div class="card p-8 bg-brand-accent text-white shadow-xl flex flex-col md:flex-row items-center gap-8 border-l-[16px] border-brand-900">
+                <div class="md:w-1/4 text-center">
+                    <div class="text-6xl mb-2">⚠️</div>
+                    <h4 class="font-black uppercase text-sm tracking-widest">Citation Alert</h4>
+                </div>
+                <div class="flex-grow">
+                    <h2 class="text-2xl font-black mb-4 tracking-tight underline">A 45% Deduction Rate</h2>
+                    <p class="text-sm opacity-90 leading-relaxed mb-4">
+                        Over 40% of the active cohort lost 2-3 points solely for missing the mandatory **APA Citation**. In professional computing, technical precision in reporting is non-negotiable.
+                    </p>
+                    <div class="bg-black/20 p-4 rounded-xl font-mono text-xs border border-white/20">
+                        <p class="text-brand-50 mb-1">Correct Format:</p>
+                        Kogon, K., & Blakemore, S. (2024). <i>Project management for the unofficial project manager</i> (Updated and revised ed.). BenBella Books.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center pb-20 pt-10 border-t border-brand-100">
+            <p class="text-[10px] text-gray-400 font-black tracking-widest uppercase mb-4 opacity-50">No SVG or Mermaid JS used in this dashboard</p>
+            <p class="text-xs text-gray-400 font-medium tracking-widest uppercase">&copy; 2026 CMPA 3301 | Texas Tech University | Cheri Whalen, M.S.</p>
+        </footer>
+    </div>
+
+    <script>
+        function wrap(str, max = 16) {
+            if (str.length <= max) return str;
+            const words = str.split(' ');
+            const lines = [];
+            let cur = words[0];
+            for (let i = 1; i < words.length; i++) {
+                if ((cur + ' ' + words[i]).length <= max) { cur += ' ' + words[i]; }
+                else { lines.push(cur); cur = words[i]; }
+            }
+            lines.push(cur);
+            return lines;
+        }
+
+        const commonTT = {
+            callbacks: {
+                title: function(items) {
+                    const lab = items[0].chart.data.labels[items[0].dataIndex];
+                    return Array.isArray(lab) ? lab.join(' ') : lab;
+                }
+            }
+        };
+
+        // Grade Distribution Chart
+        new Chart(document.getElementById('gradeChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Exemplary (20)', 'Pass (17-19)', 'Developing (13-16)', 'Incomplete (0-12)'].map(l => wrap(l)),
+                datasets: [{
+                    label: 'Active Students',
+                    data: [7, 19, 9, 10],
+                    backgroundColor: ['#0284c7', '#0ea5e9', '#f97316', '#ef4444'],
+                    borderRadius: 12
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false }, tooltip: commonTT },
+                scales: { y: { beginAtZero: true, grid: { display: false } }, x: { grid: { display: false } } }
+            }
+        });
+
+        // Issue Breakdown Chart
+        new Chart(document.getElementById('issueChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Missing APA Citation', 'Scoping/Word Count', 'Missing Peer Replies', 'Perfect Precision'].map(l => wrap(l)),
+                datasets: [{
+                    data: [19, 8, 11, 7],
+                    backgroundColor: ['#f97316', '#075985', '#ef4444', '#0284c7'],
+                    borderWidth: 0,
+                    hoverOffset: 15
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10, weight: 'bold' } }},
+                    tooltip: commonTT
+                },
+                cutout: '70%'
+            }
+        });
+    </script>
+</body>
+</html>
