@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion 06 Analytics & Highlights</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .gradient-bg { background: linear-gradient(135deg, #1e293b 0%, #334155 100%); }
+        .card-shadow { box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.1); }
+        .blackout-card { background-color: #334155; color: #f1f5f9; }
+        .redacted { background-color: #000; color: #000; border-radius: 2px; user-select: none; }
+        .alert-orange { border-left: 4px solid #f97316; background-color: #fffaf0; }
+        .feedback-grid { max-height: 500px; overflow-y: auto; scrollbar-width: thin; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <!-- Header Section -->
+    <header class="gradient-bg text-white rounded-3xl p-8 mb-8 card-shadow">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div>
+                <h1 class="text-3xl font-bold mb-2">CMPA 3301 | Discussion 06</h1>
+                <p class="text-slate-300 text-lg">The Cadence of Accountability: Post-Module Analytics</p>
+            </div>
+            <div class="mt-4 md:mt-0 text-right">
+                <span class="bg-blue-500 px-4 py-2 rounded-full text-sm font-semibold tracking-wide">SPRING 2026</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Dashboard -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div class="bg-white p-6 rounded-2xl card-shadow border-l-4 border-blue-500">
+            <p class="text-slate-500 text-sm font-semibold uppercase">Total Participants</p>
+            <h2 class="text-3xl font-bold text-slate-800">38</h2>
+        </div>
+        <div class="bg-white p-6 rounded-2xl card-shadow border-l-4 border-emerald-500">
+            <p class="text-slate-500 text-sm font-semibold uppercase">Perfect Scores</p>
+            <h2 class="text-3xl font-bold text-slate-800">4</h2>
+            <p class="text-xs text-emerald-600 mt-1">100% Engagement & APA</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl card-shadow border-l-4 border-orange-500">
+            <p class="text-slate-500 text-sm font-semibold uppercase">High Performance</p>
+            <h2 class="text-3xl font-bold text-slate-800">11</h2>
+            <p class="text-xs text-orange-600 mt-1">Score: 17-19 / 20</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl card-shadow border-l-4 border-rose-500">
+            <p class="text-slate-500 text-sm font-semibold uppercase">Action Needed</p>
+            <h2 class="text-3xl font-bold text-slate-800">8</h2>
+            <p class="text-xs text-rose-600 mt-1">Missing Peer Replies</p>
+        </div>
+    </div>
+
+    <!-- Data Visualization: Accountability Contexts -->
+    <div class="bg-white p-8 rounded-3xl mb-8 card-shadow">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+            <div class="w-full lg:w-1/2">
+                <h3 class="text-2xl font-bold text-slate-800 mb-2">Where is Accountability Useful?</h3>
+                <p class="text-slate-500 mb-6 font-medium">Distribution of professional and academic settings mentioned in student submissions.</p>
+                <div class="max-w-[320px] mx-auto">
+                    <canvas id="accountabilityChart"></canvas>
+                </div>
+            </div>
+            <div class="w-full lg:w-1/2">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="p-4 rounded-xl bg-blue-50 border border-blue-100">
+                        <span class="block text-blue-700 font-bold text-xl">32%</span>
+                        <span class="text-blue-600 text-sm font-semibold">General Professional</span>
+                        <p class="text-blue-500 text-xs mt-1">Gyms, Warehouses, IT, and Corporate Offices.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-orange-50 border border-orange-100">
+                        <span class="block text-orange-700 font-bold text-xl">21%</span>
+                        <span class="text-orange-600 text-sm font-semibold">Hospitality & Service</span>
+                        <p class="text-orange-500 text-xs mt-1">Restaurants, Clubs, and Retail.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-blue-100 border border-blue-200">
+                        <span class="block text-blue-800 font-bold text-xl">18%</span>
+                        <span class="text-blue-700 text-sm font-semibold">Healthcare & Science</span>
+                        <p class="text-blue-600 text-xs mt-1">Hospitals, Clinics, and Conservation (NRCS).</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-orange-100 border border-orange-200">
+                        <span class="block text-orange-800 font-bold text-xl">15%</span>
+                        <span class="text-orange-700 text-sm font-semibold">Academic Projects</span>
+                        <p class="text-orange-600 text-xs mt-1">Group work and research committees.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-blue-200 border border-blue-300">
+                        <span class="block text-blue-900 font-bold text-xl">14%</span>
+                        <span class="text-blue-800 text-sm font-semibold">Financial & Public Svc</span>
+                        <p class="text-blue-700 text-xs mt-1">Banking, Insurance, and Military briefs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Outstanding Posts / Quotes Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        <section>
+            <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                <i class="fas fa-star text-amber-500 mr-2"></i> Standout Contributions
+            </h3>
+            <div class="space-y-4">
+                <div class="bg-white p-6 rounded-2xl card-shadow">
+                    <p class="italic text-slate-700 mb-3 text-lg">"In my experience working for the NRCS, traditional status meetings... tend to be lengthy, report-driven, and somewhat passive... information flows one direction."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">L</div>
+                        <span class="ml-3 font-semibold text-slate-800">Landon</span>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl card-shadow">
+                    <p class="italic text-slate-700 mb-3 text-lg">"The 'wicked environments' create an illusion of chaos because there are so many variables... This cadence provides team members with the framework necessary to push through."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold">A</div>
+                        <span class="ml-3 font-semibold text-slate-800">Aaliyah</span>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl card-shadow">
+                    <p class="italic text-slate-700 mb-3 text-lg">"Team Accountability Sessions are different; they are short, regular check-ins where each person states a clear commitment... vibe is peer-to-peer and practical, not performative."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold">C</div>
+                        <span class="ml-3 font-semibold text-slate-800">Christian A.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blackout List / Needs Improvement -->
+        <section>
+            <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                <i class="fas fa-user-secret text-slate-600 mr-2"></i> Blackout List: Incomplete Submissions
+            </h3>
+            <div class="blackout-card rounded-2xl p-8 card-shadow h-[436px] flex flex-col">
+                <p class="text-slate-300 mb-6 text-sm uppercase tracking-widest font-bold">Confidential: Required Peer Engagement Missing</p>
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div class="flex items-center space-x-2">
+                        <span class="redacted px-4">Aaliyah B.</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="redacted px-4">Aitana F.</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="redacted px-4">Rick T.</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="redacted px-4">Lizeth A.</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="redacted px-4">Josh M.</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="redacted px-4">Mia L.</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="redacted px-4">Johnny S.</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="redacted px-4">Jayden J.</span>
+                    </div>
+                </div>
+                
+                <div class="alert-orange p-4 rounded-lg mt-auto">
+                    <h4 class="text-orange-800 font-bold text-sm mb-2 uppercase flex items-center">
+                        <i class="fas fa-exclamation-circle mr-2"></i> Gradebook Alert
+                    </h4>
+                    <p class="text-slate-800 text-xs leading-relaxed">
+                        Please check the <span class="font-bold">Gradebook</span> immediately. Missing submissions or incomplete peer replies have significantly impacted current scores. 
+                        <br><br>
+                        <span class="font-bold">Grade Impact:</span> 
+                        Initial posts submitted late receive 0 points. Each missing substantive reply results in a 5-point deduction.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Personalized Feedback Section -->
+    <section class="mb-8">
+        <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+            <i class="fas fa-comments text-blue-500 mr-2"></i> Personalized Feedback & Observations
+        </h3>
+        <div class="bg-sky-50 border border-sky-100 rounded-3xl p-8 card-shadow">
+            <div class="mb-6">
+                <p class="text-sky-800 font-medium italic">"I was very impressed by the depth of your reflections this week. Transitioning from a passive mindset to active commitment is rewarding!"</p>
+            </div>
+            
+            <div class="feedback-grid pr-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Xavier:</span> Focused on avoiding isolation through frequent check-ins.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Lindsey:</span> Comprehensive post; shared excellent real-world project outcomes.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Jon:</span> Honest reflection on stress/inefficiency of top-down reports.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Kaylee:</span> Exceptional detail; high-value follow-up questions to peers.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">John:</span> Above and beyond; provided constructive mentorship to peers.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Aaliyah:</span> Strong post on proactive adjustment; check peer replies.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Christian D.:</span> Good breakdown of TAS principles and momentum shift.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Marisol:</span> Detailed insurance industry example with specific actions.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Colton:</span> Highlighted critical role of tone in production accountability.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Robert:</span> Good insight on preventing "hidden problems" in warehouses.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Brian:</span> Noted significant role of peer motivation in TAS success.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Daniel:</span> Sophisticated comparison of Waterfall and Agile huddles.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Barbara:</span> Strong workplace context; great high-volume engagement.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Jade:</span> Defined the TAS mindset well as a practical framework.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Aryan:</span> Good text support regarding project schedule focus.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Jose G.:</span> Strong practical application from management view.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Landon:</span> Provided a strong application to NRCS field environments.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Katherine:</span> Insightful reflection on distractions in academic settings.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">George-Devon:</span> Highlighted contrast between "infomercials" and TAS.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Ayah:</span> Effective summary of how shared responsibility works.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Arnold:</span> Correctly identified the need for specific task clarity.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Lizeth:</span> Shared valuable healthcare perspective; check replies.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Aitana:</span> Provided relatable work experience; check peer engagement.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Greg:</span> Used collaborative tone; focused on alignment/delegation.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Shane:</span> Strong point on importance of avoiding defensive tones.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Eishal:</span> Clear initial focus; ensure replies are substantive.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Jayden:</span> Solid point on task commitment vs. simple reporting.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Mia:</span> Good analysis of purpose; needs peer discussion.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Jacob:</span> Unique and apt application to lifeguarding environment.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Kyle:</span> Good breakdown of committee-style structures.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Josh:</span> Practical banking example; needs peer responses.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Shawn:</span> Thoughtful link between feedback loops and flexibility.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Carlos:</span> Strong distinction between past review vs future reinforcement.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Jose S.:</span> Good analysis of communication barriers in academia.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Johnny:</span> Strong peer-focused mindset regarding "iron sharpening iron."
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Rick:</span> Shared great professional examples; needs second reply.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Tyler:</span> Good synthesis of Range with Country Club operations.
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-sky-100">
+                        <span class="font-bold text-sky-700">Christian A.:</span> Actionable peer coaching on huddle mechanics.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Textbook Reference Section -->
+    <div class="bg-slate-100 border border-slate-200 rounded-2xl p-8 mb-8 flex flex-col md:flex-row items-center gap-6 shadow-inner">
+        <div class="flex-shrink-0">
+            <i class="fas fa-book-open text-4xl text-slate-400"></i>
+        </div>
+        <div>
+            <h4 class="text-sm font-bold text-slate-500 uppercase tracking-wide mb-2">Module Focus: The Why Behind the Cadence</h4>
+            <blockquote class="text-xl text-slate-700 italic border-l-4 border-slate-300 pl-4">
+                "The purpose of a Team Accountability Session is to enable the team to see the project as a whole by reviewing the entire project plan, require team members to report on the commitments they made the prior week, and keep the project moving as team members make new commitments each week."
+            </blockquote>
+            <p class="mt-4 text-slate-500 font-semibold">
+                — Kogon, K., Blakemore, S., & Wood, J. (2024). <span class="italic text-slate-400 text-sm italic">Project Management for the Unofficial Project Manager.</span>
+            </p>
+        </div>
+    </div>
+
+    <footer class="text-center text-slate-400 text-sm mt-12 pb-8">
+        <p>&copy; 2026 Texas Tech University | CMPA 3301 | Instructor Whalen</p>
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('accountabilityChart').getContext('2d');
+        const data = {
+            labels: ['General Professional', 'Hospitality & Service', 'Healthcare & Science', 'Academic Projects', 'Financial & Public Svc'],
+            datasets: [{
+                data: [32, 21, 18, 15, 14],
+                backgroundColor: [
+                    '#1e40af', // Blue 800
+                    '#f97316', // Orange 500
+                    '#3b82f6', // Blue 500
+                    '#fbbf24', // Amber 400
+                    '#93c5fd'  // Blue 300
+                ],
+                hoverOffset: 15,
+                borderWidth: 2,
+                borderColor: '#ffffff'
+            }]
+        };
+
+        new Chart(ctx, {
+            type: 'pie',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
