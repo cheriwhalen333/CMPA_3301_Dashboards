@@ -1,0 +1,313 @@
+<!--
+Palette: Energetic & Playful (#FF3366, #00C2CB, #FFC107, #8E44AD)
+Plan: 
+1. Header: Introduce the CMPA 3301 cohort and the theme of "Informal Authority".
+2. Geography Section: Visualize the global spread of the team.
+3. Professional Range Section: Break down the diverse career backgrounds.
+4. Motivations Section: Illustrate the core reasons students are returning.
+5. Support Systems Section: Highlight family and pet dynamics using typography and CSS layout.
+Visualizations:
+1. Geography -> Compare -> Horizontal Bar Chart -> Best for comparing location categories and accommodating longer location lists. Chart.js (Canvas). NO SVG.
+2. Professional Range -> Compare (Composition) -> Donut Chart -> Best for showing parts of a whole within the professional landscape. Chart.js (Canvas). NO SVG.
+3. Motivations -> Compare -> Polar Area Chart -> Excellent for comparing the magnitude of different qualitative driving forces. Chart.js (Canvas). NO SVG.
+4. Support Systems -> Inform/Organize -> CSS Grid Cards with Unicode Icons -> Emphasizes key qualitative groups clearly. HTML/CSS (Tailwind). NO SVG.
+CONFIRMATION: NEITHER Mermaid JS NOR SVG were used anywhere in this output. All charts use Canvas rendering. All icons/decorations use CSS/Unicode.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cohort Profile: CMPA 3301</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .vibrant-gradient-text {
+            background: linear-gradient(to right, #FF3366, #8E44AD);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .vibrant-gradient-bg {
+            background: linear-gradient(135deg, #FF3366, #8E44AD);
+        }
+        .css-shape-circle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 9999px;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-[#F8F9FA] text-[#212529] font-sans antialiased">
+
+    <header class="vibrant-gradient-bg text-white py-16 px-6 shadow-md mb-10">
+        <div class="max-w-5xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">CMPA 3301: Cohort Profile</h1>
+            <p class="text-xl md:text-2xl font-light opacity-90 max-w-3xl mx-auto">
+                A reflection on our diverse backgrounds, staggering professional range, and the powerful motivations driving our team.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 pb-20 space-y-16">
+
+        <section class="max-w-4xl mx-auto text-center mb-12">
+            <h2 class="text-3xl font-bold text-[#8E44AD] mb-4">Building Informal Authority</h2>
+            <p class="text-lg leading-relaxed text-gray-700">
+                After reviewing the introductory posts, it is clear that we have a powerful team of professionals working together this term. From technical infrastructure leaders to specialized experts, this infographic breaks down the "Range" that makes our cohort unique. We aren't just students; we are a network of professionals.
+            </p>
+        </section>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            
+            <section class="bg-white rounded-2xl shadow-lg p-8 border-t-4 border-[#00C2CB]">
+                <div class="mb-6">
+                    <h3 class="text-2xl font-bold text-[#212529] mb-3">A Truly Global "Project Team"</h3>
+                    <p class="text-gray-600">
+                        Our group represents the best of Texas and beyond. While a strong core logs in from local hubs, our reach extends across the country and around the globe. This geographic diversity brings a wealth of different perspectives to our problem-solving and project management discussions.
+                    </p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="geographyChart"></canvas>
+                </div>
+            </section>
+
+            <section class="bg-white rounded-2xl shadow-lg p-8 border-t-4 border-[#FFC107]">
+                <div class="mb-6">
+                    <h3 class="text-2xl font-bold text-[#212529] mb-3">Staggering Professional Range</h3>
+                    <p class="text-gray-600">
+                        The professional expertise in this virtual room is incredible. We are learning alongside individuals leading global infrastructure, managing legal and medical processes, and driving creative services. This blend of technical and specialized knowledge forms a robust foundation for our course projects.
+                    </p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="professionChart"></canvas>
+                </div>
+            </section>
+
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+            <section class="lg:col-span-1 bg-white rounded-2xl shadow-lg p-8 border-t-4 border-[#FF3366]">
+                <div class="mb-6">
+                    <h3 class="text-2xl font-bold text-[#212529] mb-3">The "Why" That Fuels Us</h3>
+                    <p class="text-gray-600">
+                        Many are returning to finish degrees started years ago, often while balancing full-time careers. Whether pivoting to new tech sectors or setting a professional example, these motivations are the fuel that will push us through the 8-week sprint.
+                    </p>
+                </div>
+                <div class="chart-container h-80">
+                    <canvas id="motivationChart"></canvas>
+                </div>
+            </section>
+
+            <section class="lg:col-span-2 bg-white rounded-2xl shadow-lg p-8 border-t-4 border-[#8E44AD] flex flex-col justify-between">
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-[#212529] mb-3">Family & Non-Human Support Systems</h3>
+                    <p class="text-gray-600">
+                        Family is clearly the heartbeat of this class. We have members pursuing goals simultaneously across generations. And our support systems wouldn't be complete without our dedicated pets, making our virtual office definitely animal-friendly.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-auto">
+                    
+                    <div class="bg-[#F8F9FA] p-6 rounded-xl border border-gray-100 flex items-start space-x-4">
+                        <div class="css-shape-circle bg-[#00C2CB] text-white">👨‍👩‍👧‍👦</div>
+                        <div>
+                            <h4 class="font-bold text-lg text-[#212529]">Family Dynamics</h4>
+                            <p class="text-sm text-gray-600 mt-1">From new parents with one-month-olds to mothers of six and grandparents, family is the core motivation.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#F8F9FA] p-6 rounded-xl border border-gray-100 flex items-start space-x-4">
+                        <div class="css-shape-circle bg-[#FFC107] text-[#212529]">🐕</div>
+                        <div>
+                            <h4 class="font-bold text-lg text-[#212529]">Canine Companions</h4>
+                            <p class="text-sm text-gray-600 mt-1">Our virtual network is heavily supported by loyal Corgis and protective German Shepherds.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#F8F9FA] p-6 rounded-xl border border-gray-100 flex items-start space-x-4">
+                        <div class="css-shape-circle bg-[#FF3366] text-white">🐈</div>
+                        <div>
+                            <h4 class="font-bold text-lg text-[#212529]">Feline Friends</h4>
+                            <p class="text-sm text-gray-600 mt-1">Bonded feline pairs and dedication to local stray cat rescue programs highlight our compassionate side.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#F8F9FA] p-6 rounded-xl border border-gray-100 flex items-start space-x-4">
+                        <div class="css-shape-circle bg-[#8E44AD] text-white">💼</div>
+                        <div>
+                            <h4 class="font-bold text-lg text-[#212529]">Full-Time Balancing</h4>
+                            <p class="text-sm text-gray-600 mt-1">Students are expertly managing full-time careers across rigorous industries while completing their education.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer class="bg-[#212529] text-white py-8 text-center">
+        <p class="text-lg font-bold">Wreck 'em!</p>
+        <p class="text-sm text-gray-400 mt-2">CMPA 3301: Fundamentals of Computing Applications</p>
+    </footer>
+
+    <script>
+        function wrapLabel(label, maxChars = 16) {
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            
+            words.forEach(word => {
+                if ((currentLine + word).length > maxChars) {
+                    if (currentLine.trim() !== '') {
+                        lines.push(currentLine.trim());
+                    }
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            
+            if (currentLine.trim() !== '') {
+                lines.push(currentLine.trim());
+            }
+            
+            return lines;
+        }
+
+        const customTooltipPlugin = {
+            tooltip: {
+                callbacks: {
+                    title: function(tooltipItems) {
+                        const item = tooltipItems[0];
+                        let label = item.chart.data.labels[item.dataIndex];
+                        if (Array.isArray(label)) {
+                            return label.join(' ');
+                        } else {
+                            return label;
+                        }
+                    }
+                }
+            }
+        };
+
+        const geoCtx = document.getElementById('geographyChart').getContext('2d');
+        const rawGeoLabels = [
+            "Texas Hubs (Lubbock, DFW, Houston, San Antonio, El Paso)",
+            "Other US Regions (Maryland, Virginia, Arizona, California)",
+            "International Base (Kenya, Honduras, Mexico, Diego Garcia)"
+        ];
+        new Chart(geoCtx, {
+            type: 'bar',
+            data: {
+                labels: rawGeoLabels.map(l => wrapLabel(l)),
+                datasets: [{
+                    label: 'Cohort Distribution',
+                    data: [55, 30, 15],
+                    backgroundColor: ['#00C2CB', '#FFC107', '#FF3366'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    ...customTooltipPlugin
+                },
+                scales: {
+                    x: { display: false, beginAtZero: true },
+                    y: { 
+                        grid: { display: false },
+                        ticks: { font: { size: 13, family: 'sans-serif' }, color: '#4B5563' }
+                    }
+                }
+            }
+        });
+
+        const profCtx = document.getElementById('professionChart').getContext('2d');
+        const rawProfLabels = [
+            "Tech & Infrastructure Leaders",
+            "Specialized Experts (Legal, Medical, Trades)",
+            "Creatives & Service Professionals"
+        ];
+        new Chart(profCtx, {
+            type: 'doughnut',
+            data: {
+                labels: rawProfLabels.map(l => wrapLabel(l)),
+                datasets: [{
+                    data: [45, 40, 15],
+                    backgroundColor: ['#8E44AD', '#00C2CB', '#FFC107'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                cutout: '65%',
+                plugins: {
+                    legend: { position: 'right', labels: { font: { family: 'sans-serif' }, color: '#4B5563' } },
+                    ...customTooltipPlugin
+                }
+            }
+        });
+
+        const motCtx = document.getElementById('motivationChart').getContext('2d');
+        const rawMotLabels = [
+            "Finish Started Degrees",
+            "Pivot to Cyber and AI",
+            "Professional Example for Children"
+        ];
+        new Chart(motCtx, {
+            type: 'polarArea',
+            data: {
+                labels: rawMotLabels.map(l => wrapLabel(l)),
+                datasets: [{
+                    data: [8, 6, 7],
+                    backgroundColor: [
+                        'rgba(255, 51, 102, 0.7)',
+                        'rgba(142, 68, 173, 0.7)',
+                        'rgba(255, 193, 7, 0.7)'
+                    ],
+                    borderColor: '#ffffff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { family: 'sans-serif' }, color: '#4B5563' } },
+                    ...customTooltipPlugin
+                },
+                scales: {
+                    r: {
+                        ticks: { display: false },
+                        grid: { color: 'rgba(0,0,0,0.05)' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
