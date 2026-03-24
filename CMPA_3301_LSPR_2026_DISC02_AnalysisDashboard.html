@@ -2,13 +2,14 @@
 Palette: Texas Tech Official (#CC0000, #000000, #53565A, #990000)
 Plan:
 1. Header: Discussion 02 Summary in TTU Branding.
-2. Urgent Alert: Accessible high-contrast card for missing work.
-3. Metrics: Performance benchmarks using TTU Red.
-4. Visualization Grid:
+2. Urgent Alert: Accessible high-contrast card for missing work and advisor notification for drops.
+3. Metrics: Performance benchmarks using black numbers and TTU Red percentage markers.
+4. Peer Connection: Narrative box above charts encouraging student networking and outreach.
+5. Visualization Grid:
    - Sampling Domains (Bar Chart in TTU Red).
    - Transferable Skills (Polar Area using TTU shades).
    - Score Distribution (Categorized by TTU palette).
-5. Quality Check: Professionalism and technical standards.
+6. Quality Check: Professionalism and technical standards.
 CONFIRMATION: NEITHER Mermaid JS NOR SVG were used in this output. All visuals are Canvas or CSS-based.
 -->
 <!DOCTYPE html>
@@ -74,7 +75,7 @@ CONFIRMATION: NEITHER Mermaid JS NOR SVG were used in this output. All visuals a
                     <p class="text-xl text-[#000000] leading-snug">
                         If you are missing work from Week 1, please contact me immediately at 
                         <a href="mailto:cheri.whalen@ttu.edu" class="font-bold text-[#CC0000] hover:underline">cheri.whalen@ttu.edu</a> 
-                        for support. <span class="ttu-red-text font-black">Stay on track!</span>
+                        for support. Additionally, if you plan to drop this course, please be sure to contact your academic advisor immediately. <span class="ttu-red-text font-black">Stay on track!</span>
                     </p>
                 </div>
             </div>
@@ -87,11 +88,24 @@ CONFIRMATION: NEITHER Mermaid JS NOR SVG were used in this output. All visuals a
             </div>
             <div class="ttu-card text-center">
                 <p class="text-xs font-bold text-[#53565A] uppercase tracking-widest mb-1">Perfect Score Rate</p>
-                <p class="text-6xl font-black text-[#CC0000]">75<span class="text-black">%</span></p>
+                <p class="text-6xl font-black text-[#000000]">75<span class="ttu-red-text">%</span></p>
             </div>
             <div class="ttu-card text-center">
                 <p class="text-xs font-bold text-[#53565A] uppercase tracking-widest mb-1">Avg. Word Count</p>
                 <p class="text-6xl font-black text-[#000000]">184</p>
+            </div>
+        </section>
+
+        <!-- Peer Connection Note -->
+        <section class="bg-[#53565A] text-white p-6 rounded-lg shadow-md border-l-8 border-[#CC0000]">
+            <div class="flex items-center space-x-6">
+                <div class="text-4xl">🤝</div>
+                <div>
+                    <h3 class="text-lg font-black uppercase tracking-tight ttu-accessible-red-text">Networking Opportunity</h3>
+                    <p class="text-md opacity-95">
+                        Use this information about your classmates' diverse industries and skill sets to reach out to them and create meaningful professional connections. Building a strong network within your cohort is a vital part of your development as a computing professional!
+                    </p>
+                </div>
             </div>
         </section>
 
