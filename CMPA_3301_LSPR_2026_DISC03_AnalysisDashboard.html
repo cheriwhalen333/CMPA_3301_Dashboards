@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discussion 03 Feedback: Building Informal Authority</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 350px;
+    max-height: 400px;
+}
+@media (max-width: 640px) {
+    .chart-container {
+        height: 300px;
+    }
+}
+.glass-card {
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(13, 44, 84, 0.1);
+}
+.accent-border-top {
+    border-top-width: 4px;
+}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-[#FF0054] selection:text-white">
+
+<!--
+Palette Selected: Energetic & Playful (Primary: #0D2C54, Accents: #00A6ED, #FF0054, #FFBD00, #7FB800)
+Narrative Plan:
+1. Introduction: Instructor voice greeting and personal note.
+2. Exemplary Recognition: First-name recognition with guidance to use these as models for future work.
+3. Behavioral Resonance: Charting the selection frequency of the 5 behaviors.
+4. Thematic Lessons: Qualitative synthesis of class insights.
+5. Grade Distribution: Performance metrics for Discussion 03.
+6. Rubric & Formatting: Compliance data regarding the "Week 02" error.
+7. Final Reminders: Critical pillars for future success (Deadlines & Citations).
+CONFIRMATION: NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+-->
+
+<nav class="sticky top-0 z-50 bg-[#0D2C54] text-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <div class="flex items-center">
+                <span class="font-bold text-xl tracking-tight uppercase">Discussion 03 <span class="text-[#00A6ED]">Feedback</span></span>
+            </div>
+            <div class="hidden md:flex space-x-6 text-xs font-semibold uppercase tracking-widest">
+                <a href="#exemplary" class="hover:text-[#FFBD00] transition-colors">Recognition</a>
+                <a href="#data" class="hover:text-[#FFBD00] transition-colors">Behaviors</a>
+                <a href="#distribution" class="hover:text-[#FFBD00] transition-colors">Scores</a>
+                <a href="#reminders" class="hover:text-[#FFBD00] transition-colors">Reminders</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<header class="bg-[#0D2C54] text-white py-16 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+        <div class="inline-block bg-[#7FB800] text-xs font-bold px-3 py-1 rounded-full mb-4 uppercase tracking-widest">Grading Complete</div>
+        <h1 class="text-4xl md:text-5xl font-black mb-6 leading-tight">Behaviors & Building <br/><span class="text-[#00A6ED]">Informal Authority</span></h1>
+        <p class="text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">A visual summary of the Early Spring 2026 cohort's performance, behavior analysis, and thematic growth.</p>
+    </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+
+    <section id="intro" class="text-center max-w-3xl mx-auto">
+        <p class="text-xl text-slate-600 italic leading-relaxed">"Thank you for the kindness, thoughts, prayers, and grace you extended to me while I was away. I am incredibly impressed by the professional depth represented in this week's discussion."</p>
+    </section>
+
+    <section id="exemplary" class="space-y-8">
+        <div class="text-center">
+            <h2 class="text-3xl font-extrabold text-[#0D2C54] mb-2 uppercase tracking-tight">Exemplary Recognition</h2>
+            <div class="h-1 w-20 bg-[#FF0054] mx-auto mb-6"></div>
+            <p class="text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                These students demonstrated exceptional proficiency in connecting course principles to high-stakes professional environments. 
+                <strong>I highly suggest everyone goes back to read these specific posts, as they serve as an excellent model for expectations in our future discussions. Well done, stand outs!</strong>
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
+            <div class="glass-card p-6 rounded-2xl text-center shadow-md accent-border-top border-[#00A6ED]">
+                <span class="block text-xl font-black text-[#0D2C54]">Larry</span>
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Police De-escalation</span>
+            </div>
+            <div class="glass-card p-6 rounded-2xl text-center shadow-md accent-border-top border-[#FF0054]">
+                <span class="block text-xl font-black text-[#0D2C54]">Kenneth</span>
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">ATC Generator Project</span>
+            </div>
+            <div class="glass-card p-6 rounded-2xl text-center shadow-md accent-border-top border-[#FFBD00]">
+                <span class="block text-xl font-black text-[#0D2C54]">Tristen</span>
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Wind Tech Operations</span>
+            </div>
+            <div class="glass-card p-6 rounded-2xl text-center shadow-md accent-border-top border-[#7FB800]">
+                <span class="block text-xl font-black text-[#0D2C54]">Cassandra</span>
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Drumline Leadership</span>
+            </div>
+            <div class="glass-card p-6 rounded-2xl text-center shadow-md accent-border-top border-[#0D2C54]">
+                <span class="block text-xl font-black text-[#0D2C54]">Felix</span>
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Software Error Logs</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="data" class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div class="space-y-6">
+            <h2 class="text-3xl font-extrabold text-[#0D2C54] uppercase tracking-tight">Behavioral Resonance</h2>
+            <p class="text-slate-600">The cohort's selection of behaviors reveals a strong focus on technical clarity. **Clarifying Expectations** remains the primary concern for our engineering and logistics leads, while **Listen First** was the preferred strategy for our emergency responders and service professionals.</p>
+            <div class="glass-card rounded-3xl shadow-xl p-8">
+                <h3 class="text-center font-bold text-slate-700 mb-6 uppercase tracking-wider text-xs">Volume of Selection by Behavior</h3>
+                <div class="chart-container">
+                    <canvas id="behaviorsVolumeChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="space-y-6">
+            <h2 class="text-3xl font-extrabold text-[#0D2C54] uppercase tracking-tight">Thematic Lessons</h2>
+            <div class="grid grid-cols-1 gap-4">
+                <div class="bg-white border-l-4 border-[#00A6ED] p-4 rounded-r-xl shadow-md">
+                    <h4 class="font-black text-[#00A6ED] uppercase text-[10px] mb-1">1. Listen First</h4>
+                    <p class="text-slate-600 text-xs">A tool for safety. Pausing to understand the "log" (Felix) or the "agitated individual" (Larry) ensures we solve the right problem.</p>
+                </div>
+                <div class="bg-white border-l-4 border-[#FF0054] p-4 rounded-r-xl shadow-md">
+                    <h4 class="font-black text-[#FF0054] uppercase text-[10px] mb-1">2. Clarify Expectations</h4>
+                    <p class="text-slate-600 text-xs">Fuzzy expectations are fatal. Defining "success" early avoids rework and technical drift.</p>
+                </div>
+                <div class="bg-white border-l-4 border-[#FFBD00] p-4 rounded-r-xl shadow-md">
+                    <h4 class="font-black text-[#FFBD00] uppercase text-[10px] mb-1">3. Extend Trust</h4>
+                    <p class="text-slate-600 text-xs">Trust allows a team to move faster. Delegating to a sophomore (Cassandra) reveals hidden talent.</p>
+                </div>
+                <div class="bg-white border-l-4 border-[#7FB800] p-4 rounded-r-xl shadow-md">
+                    <h4 class="font-black text-[#7FB800] uppercase text-[10px] mb-1">4. Practice Accountability</h4>
+                    <p class="text-slate-600 text-xs">Accountability is the team's backbone. Using "go/no-go" checkpoints (Kenneth) ensures mission-critical success.</p>
+                </div>
+                <div class="bg-white border-l-4 border-[#0D2C54] p-4 rounded-r-xl shadow-md">
+                    <h4 class="font-black text-[#0D2C54] uppercase text-[10px] mb-1">5. Demonstrate Respect</h4>
+                    <p class="text-slate-600 text-xs">The team's lubricant. Respect avoids the friction of combativeness that slows innovation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="distribution" class="space-y-8">
+        <div class="text-center">
+            <h2 class="text-3xl font-extrabold text-[#0D2C54] mb-2 uppercase tracking-tight">Grade Distribution</h2>
+            <div class="h-1 w-20 bg-[#00A6ED] mx-auto mb-6"></div>
+            <p class="text-slate-600 max-w-2xl mx-auto">Scores for Discussion 03 reflected a high level of engagement, with 16 students achieving a perfect score. Minor deductions were primarily related to title formatting and citation depth.</p>
+        </div>
+
+        <div class="glass-card rounded-3xl shadow-xl p-8 bg-slate-50">
+            <div class="chart-container">
+                <canvas id="scoreDistributionChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <section id="rubric" class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="glass-card rounded-3xl shadow-xl p-8 border-t-8 border-[#FFBD00]">
+            <h3 class="text-center font-bold text-slate-700 mb-6 uppercase tracking-wider text-sm">Formatting Accuracy (Week 03)</h3>
+            <div class="chart-container h-64">
+                <canvas id="titleErrorChart"></canvas>
+            </div>
+            <div class="mt-6 p-4 bg-[#FFBD00] bg-opacity-10 rounded-xl">
+                <p class="text-xs text-[#0D2C54] font-bold text-center italic">ALERT: 60% of posts were incorrectly titled as "Week 02". Please double-check current week labels.</p>
+            </div>
+        </div>
+
+        <div class="glass-card rounded-3xl shadow-xl p-8 border-t-8 border-[#0D2C54]">
+            <h3 class="text-center font-bold text-slate-700 mb-6 uppercase tracking-wider text-sm">Rubric Pillar Completion</h3>
+            <div class="chart-container">
+                <canvas id="rubricSuccessChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <section id="reminders" class="pt-8">
+        <div class="bg-[#0D2C54] rounded-3xl shadow-2xl p-10 text-white">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4">
+                        <span class="text-5xl">⏰</span>
+                        <div>
+                            <h3 class="text-2xl font-black uppercase tracking-tight text-[#00A6ED]">The Deadline</h3>
+                            <p class="text-lg font-bold">Wednesdays @ 11:59 PM CT</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">Timely initial posts are critical for peer learning. Posting by Wednesday allows your teammates to meet the Sunday reply requirement with substantive analysis.</p>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4">
+                        <span class="text-5xl">📚</span>
+                        <div>
+                            <h3 class="text-2xl font-black uppercase tracking-tight text-[#7FB800]">The Requirement</h3>
+                            <p class="text-lg font-bold">Cite Your Resources</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">Ground your personal experience in the course content. Utilizing the textbook (Kogon & Blakemore, 2024) is the best way to earn full credit on your initial post.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="bg-[#0D2C54] py-12 text-center text-white border-t-4 border-[#FF0054]">
+    <p class="font-black text-[#00A6ED] mb-2 uppercase tracking-[0.2em] text-xl">Wreck 'em!</p>
+    <p class="text-slate-500 text-xs uppercase tracking-widest">CMPA 3301 | Early Spring 2026 Cohort</p>
+</footer>
+
+<script>
+function wrapLabel(label, maxLength = 16) {
+    if (label.length <= maxLength) return label;
+    const words = label.split(' ');
+    const lines = [];
+    let currentLine = '';
+    words.forEach(word => {
+        if ((currentLine + word).length > maxLength) {
+            if (currentLine) lines.push(currentLine.trim());
+            currentLine = word + ' ';
+        } else {
+            currentLine += word + ' ';
+        }
+    });
+    if (currentLine) lines.push(currentLine.trim());
+    return lines;
+}
+
+const tooltipConfig = {
+    plugins: {
+        tooltip: {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    return Array.isArray(label) ? label.join(' ') : label;
+                }
+            }
+        }
+    }
+};
+
+const commonOptions = {
+    maintainAspectRatio: false,
+    responsive: true
+};
+
+function initCharts() {
+    
+    // 1. Behavioral Selection
+    const bLabels = [
+        "Listen First", 
+        "Clarify Expectations", 
+        "Extend Trust", 
+        "Practice Accountability", 
+        "Demonstrate Respect"
+    ].map(l => wrapLabel(l));
+
+    new Chart(document.getElementById('behaviorsVolumeChart'), {
+        type: 'bar',
+        data: {
+            labels: bLabels,
+            datasets: [{
+                label: 'Student Count',
+                data: [6, 9, 8, 4, 2],
+                backgroundColor: ['#00A6ED', '#FF0054', '#FFBD00', '#7FB800', '#0D2C54'],
+                borderRadius: 8
+            }]
+        },
+        options: {
+            ...commonOptions,
+            ...tooltipConfig,
+            scales: {
+                y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
+                x: { grid: { display: false } }
+            },
+            plugins: { ...tooltipConfig.plugins, legend: { display: false } }
+        }
+    });
+
+    // 2. Score Distribution
+    const distLabels = ["20/20", "19/20", "18/20", "14-15", "10-13", "0-8"];
+    new Chart(document.getElementById('scoreDistributionChart'), {
+        type: 'bar',
+        data: {
+            labels: distLabels,
+            datasets: [{
+                label: 'Frequency of Scores',
+                data: [16, 5, 4, 2, 4, 3],
+                backgroundColor: '#00A6ED',
+                borderRadius: 12
+            }]
+        },
+        options: {
+            ...commonOptions,
+            ...tooltipConfig,
+            scales: {
+                y: { beginAtZero: true },
+                x: { grid: { display: false } }
+            },
+            plugins: { ...tooltipConfig.plugins, legend: { display: false } }
+        }
+    });
+
+    // 3. Title Errors
+    new Chart(document.getElementById('titleErrorChart'), {
+        type: 'doughnut',
+        data: {
+            labels: ["Correct Title", "Week 02 Error"],
+            datasets: [{
+                data: [40, 60],
+                backgroundColor: ['#7FB800', '#FFBD00'],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            ...commonOptions,
+            ...tooltipConfig,
+            cutout: '75%',
+            plugins: { 
+                ...tooltipConfig.plugins, 
+                legend: { position: 'bottom', labels: { boxWidth: 10, usePointStyle: true, font: { size: 10 } } } 
+            }
+        }
+    });
+
+    // 4. Rubric Pillars
+    const successLabels = [
+        "Analysis Depth", 
+        "Word Count", 
+        "APA Citation", 
+        "Peer Engagement"
+    ].map(l => wrapLabel(l));
+
+    new Chart(document.getElementById('rubricSuccessChart'), {
+        type: 'bar',
+        data: {
+            labels: successLabels,
+            datasets: [
+                {
+                    label: 'Met Requirements',
+                    data: [30, 28, 22, 26],
+                    backgroundColor: '#0D2C54'
+                }
+            ]
+        },
+        options: {
+            ...commonOptions,
+            ...tooltipConfig,
+            indexAxis: 'y',
+            scales: {
+                x: { beginAtZero: true, max: 34 },
+                y: { grid: { display: false } }
+            },
+            plugins: {
+                ...tooltipConfig.plugins,
+                legend: { display: false }
+            }
+        }
+    });
+}
+
+window.addEventListener('DOMContentLoaded', initCharts);
+</script>
+</body>
+</html>
