@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion 03 Analysis & Insights</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Chosen Palette: Calm Harmony (Stone-50 background, Slate-800 text, Teal-600 and Amber-500 accents) -->
+    <!-- Application Structure Plan: The application utilizes a sidebar navigation structure to divide the comprehensive Discussion 03 grading report into three logical, digestible segments: 'Executive Insights', 'Behavioral Themes', and 'Cohort Metrics'. This tabbed approach prevents cognitive overload, allowing the user to seamlessly switch between qualitative achievements (exemplars), theoretical applications (the 5 behaviors), and quantitative results (grades/errors). Interactive charts and clickable list elements encourage active exploration of the data rather than passive scrolling. -->
+    <!-- Visualization & Content Choices: 
+         1. Executive Insights -> Goal: Inform -> Viz: Interactive HTML/Tailwind Cards -> Interaction: Hover effects -> Justification: Highlights top performers and their specific context cleanly. -> Library: HTML/CSS.
+         2. Behavioral Themes -> Goal: Organize/Compare -> Viz: Bar Chart & Dynamic Text Area -> Interaction: Chart hover/click triggers text update -> Justification: Directly links quantitative selection frequency with qualitative thematic lessons, showing the 'why' behind the 'what'. -> Library: Chart.js & Vanilla JS.
+         3. Cohort Metrics -> Goal: Inform/Compare -> Viz: Doughnut and Bar Charts -> Interaction: Tooltips -> Justification: Provides a rapid visual summary of grade distributions and formatting errors for quick instructor/student assessment. -> Library: Chart.js.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+        body {
+            background-color: #fafaf9;
+            color: #1e293b;
+        }
+        
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+
+        .nav-button {
+            transition: all 0.2s ease-in-out;
+        }
+        .nav-button.active {
+            background-color: #0f766e;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .exemplar-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .exemplar-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .behavior-btn {
+            transition: all 0.2s ease;
+        }
+        .behavior-btn.selected {
+            border-left-width: 4px;
+            border-color: #f59e0b;
+            background-color: #f8fafc;
+        }
+    </style>
+</head>
+<body class="flex flex-col md:flex-row min-h-screen font-sans">
+
+    <nav class="w-full md:w-64 bg-white border-r border-stone-200 flex-shrink-0 shadow-sm z-10 md:min-h-screen">
+        <div class="p-6 border-b border-stone-100">
+            <h1 class="text-2xl font-black text-slate-800 tracking-tight">CMPA 3301</h1>
+            <p class="text-xs font-bold text-teal-600 uppercase tracking-widest mt-1">Discussion 03 Analysis</p>
+        </div>
+        <div class="flex md:flex-col p-4 gap-2 overflow-x-auto md:overflow-visible">
+            <button onclick="navigate('insights')" id="nav-insights" class="nav-button active whitespace-nowrap text-left px-4 py-3 rounded-lg text-sm text-slate-600 hover:bg-stone-100 flex-1 md:flex-none">&#12776F; Executive Insights</button>
+            <button onclick="navigate('themes')" id="nav-themes" class="nav-button whitespace-nowrap text-left px-4 py-3 rounded-lg text-sm text-slate-600 hover:bg-stone-100 flex-1 md:flex-none">&#128218; Behavioral Themes</button>
+            <button onclick="navigate('metrics')" id="nav-metrics" class="nav-button whitespace-nowrap text-left px-4 py-3 rounded-lg text-sm text-slate-600 hover:bg-stone-100 flex-1 md:flex-none">&#128202; Cohort Metrics</button>
+        </div>
+    </nav>
+
+    <main class="flex-1 p-6 md:p-10 overflow-y-auto w-full">
+        
+        <section id="view-insights" class="block animate-fade-in">
+            <div class="max-w-5xl mx-auto">
+                <header class="mb-8">
+                    <h2 class="text-3xl font-extrabold text-slate-800 mb-4">Executive Insights & Exemplars</h2>
+                    <p class="text-lg text-slate-600 leading-relaxed border-l-4 border-teal-600 pl-4 bg-white p-4 rounded-r-lg shadow-sm">
+                        This section highlights the outstanding real-world applications of project management principles from our Early Spring 2026 cohort. The purpose is to recognize top performers and provide the class with concrete models of excellence. By reviewing these specific, high-stakes scenarios, students can better understand how theoretical concepts translate into active leadership strategies.
+                    </p>
+                </header>
+
+                <div class="mt-8">
+                    <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center">&#11088; Cohort Standouts</h3>
+                    <p class="text-sm text-slate-500 mb-6">Interact with the cards below to see how these students connected textbook concepts to their professional environments.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="exemplar-card bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                            <div class="text-amber-500 text-2xl mb-2">&#128110;</div>
+                            <h4 class="font-black text-lg text-slate-800">Larry</h4>
+                            <p class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-3">Law Enforcement</p>
+                            <p class="text-sm text-slate-600">Demonstrated the critical use of <strong>Listen First</strong> as a primary de-escalation tool, proving it is a mechanism for safety, not just courtesy.</p>
+                        </div>
+
+                        <div class="exemplar-card bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                            <div class="text-amber-500 text-2xl mb-2">&#9889;</div>
+                            <h4 class="font-black text-lg text-slate-800">Kenneth</h4>
+                            <p class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-3">Air Traffic Control</p>
+                            <p class="text-sm text-slate-600">Highlighted <strong>Practice Accountability</strong> by utilizing "go/no-go" checkpoints while managing backup power systems for an ATC tower.</p>
+                        </div>
+
+                        <div class="exemplar-card bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                            <div class="text-amber-500 text-2xl mb-2">&#127811;</div>
+                            <h4 class="font-black text-lg text-slate-800">Tristen</h4>
+                            <p class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-3">Wind Tech Operations</p>
+                            <p class="text-sm text-slate-600">Provided excellent insight into the life-and-death importance of <strong>Clarifying Expectations</strong> in hazardous energy environments.</p>
+                        </div>
+
+                        <div class="exemplar-card bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                            <div class="text-amber-500 text-2xl mb-2">&#12792A;</div>
+                            <h4 class="font-black text-lg text-slate-800">Cassandra</h4>
+                            <p class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-3">Education / Band</p>
+                            <p class="text-sm text-slate-600">Showed how <strong>Extending Trust</strong> to a sophomore drumline captain can unlock hidden leadership potential and accelerate team growth.</p>
+                        </div>
+
+                        <div class="exemplar-card bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                            <div class="text-amber-500 text-2xl mb-2">&#128187;</div>
+                            <h4 class="font-black text-lg text-slate-800">Felix</h4>
+                            <p class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-3">Software Engineering</p>
+                            <p class="text-sm text-slate-600">Delivered a brilliant technical analogy, comparing <strong>Listening First</strong> to reading a software error log before attempting to write a fix.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-themes" class="hidden animate-fade-in">
+            <div class="max-w-6xl mx-auto">
+                <header class="mb-8">
+                    <h2 class="text-3xl font-extrabold text-slate-800 mb-4">Behavioral Themes & Application</h2>
+                    <p class="text-lg text-slate-600 leading-relaxed border-l-4 border-teal-600 pl-4 bg-white p-4 rounded-r-lg shadow-sm">
+                        This section breaks down the cohort's engagement with the Five Foundational Behaviors. The interactive chart reveals which behaviors resonated most with the class based on selection frequency. Selecting a behavior below updates the content area to display synthesized qualitative lessons, demonstrating how these concepts solve actual operational bottlenecks.
+                    </p>
+                </header>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 mb-8">
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">Behavior Selection Frequency</h3>
+                    <p class="text-sm text-slate-500 mb-4">This chart visualizes the distribution of topics chosen for the initial post. Click on a bar to explore the insights for that behavior.</p>
+                    <div class="chart-container">
+                        <canvas id="behaviorBarChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="w-full md:w-1/3 flex flex-col gap-2" id="behavior-btn-container">
+                    </div>
+                    
+                    <div class="w-full md:w-2/3 bg-white p-8 rounded-xl shadow-sm border border-stone-200 min-h-[300px]">
+                        <h4 class="text-sm font-bold text-amber-500 uppercase tracking-widest mb-2" id="detail-subtitle">Select a behavior</h4>
+                        <h3 class="text-2xl font-black text-slate-800 mb-4" id="detail-title">Qualitative Synthesis</h3>
+                        <p class="text-slate-600 text-lg leading-relaxed" id="detail-content">Interact with the chart or the menu to view the compiled lessons from the cohort.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-metrics" class="hidden animate-fade-in">
+            <div class="max-w-5xl mx-auto">
+                <header class="mb-8">
+                    <h2 class="text-3xl font-extrabold text-slate-800 mb-4">Cohort Performance Metrics</h2>
+                    <p class="text-lg text-slate-600 leading-relaxed border-l-4 border-teal-600 pl-4 bg-white p-4 rounded-r-lg shadow-sm">
+                        This section provides a quantitative breakdown of Discussion 03 outcomes. It includes the grade distribution to illustrate the overall scoring curve, submission timeliness tracking to monitor engagement, and an analysis of formatting accuracy. These metrics help identify systemic issues, such as the widespread title formatting error, guiding future instructional focus.
+                    </p>
+                </header>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-800 mb-1">Grade Distribution</h3>
+                        <p class="text-xs text-slate-500 mb-4">Overview of final scores out of 20 points. Hover for student counts.</p>
+                        <div class="chart-container flex-grow">
+                            <canvas id="gradeChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-800 mb-1">Submission Timeliness</h3>
+                        <p class="text-xs text-slate-500 mb-4">Comparison of on-time versus late initial posts.</p>
+                        <div class="chart-container flex-grow">
+                            <canvas id="timeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 w-full md:w-1/2 mx-auto">
+                    <h3 class="text-lg font-bold text-slate-800 mb-1 text-center">Formatting Accuracy</h3>
+                    <p class="text-xs text-slate-500 mb-4 text-center">Tracking the "Week 02" vs "Week 03" title error.</p>
+                    <div class="chart-container h-64">
+                        <canvas id="formatChart"></canvas>
+                    </div>
+                    <div class="mt-4 p-3 bg-amber-50 rounded text-amber-800 text-sm font-medium border border-amber-200 text-center">
+                        Note: 60% of students used the incorrect week number in their title. Points were adjusted minimally.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        const appState = {
+            currentView: 'insights',
+            activeBehaviorIndex: 0
+        };
+
+        const behaviorData = [
+            {
+                title: "Clarify Expectations",
+                count: 9,
+                subtitle: "Combating Technical Drift",
+                content: "We saw how 'fuzzy' expectations can lead to chaos, whether in a family road trip (Sadia) or in technical data syncing (Kristopher). The consensus is clear across the cohort: taking five minutes to define what 'success' looks like explicitly saves hours of rework and operational friction later."
+            },
+            {
+                title: "Extend Trust",
+                count: 8,
+                subtitle: "The Vulnerability of Delegation",
+                content: "This behavior sparked our most vulnerable reflections. Landon and Joseph shared honest stories about the difficult transition from micromanagement to true delegation. We learned that extending trust is inherently a risk, but it is the only viable path to allow a team to move faster and scale their efforts."
+            },
+            {
+                title: "Listen First",
+                count: 6,
+                subtitle: "A Mechanism for Safety",
+                content: "This was a popular choice among our safety-focused professionals. As Larry and Mia (Aviation) pointed out, listening is more than just a courtesy—it is a vital tool for safety and de-escalation. By listening first, we ensure we are solving the right problem (like checking a code error log) rather than reacting blindly."
+            },
+            {
+                title: "Practice Accountability",
+                count: 4,
+                subtitle: "Structured Commitments",
+                content: "Cristian and Kenneth reminded the class that accountability isn't about punishment; it is about establishing a structured system of commitments. Whether utilizing 'go/no-go' checkpoints or maintaining strict team standards during difficult personnel decisions, accountability provides the backbone for project success."
+            },
+            {
+                title: "Demonstrate Respect",
+                count: 2,
+                subtitle: "The Team's Lubricant",
+                content: "Timothy and Artemio analyzed how the absence of respect—manifesting through combativeness or poor communication—acts as a 'friction' that slows every project down to a crawl. Conversely, respect acts as the lubricant that keeps a team moving forward and fosters continued innovation."
+            }
+        ];
+
+        const metricData = {
+            grades: { labels: ["20/20", "19/20", "18/20", "14-15", "10-13", "0-8"], data: [16, 5, 4, 2, 4, 3] },
+            timeliness: { labels: ["On-Time", "Late Initial"], data: [30, 4] },
+            formatting: { labels: ["Correct Title", "Week 02 Error"], data: [40, 60] }
+        };
+
+        let behaviorChartInstance = null;
+
+        function navigate(viewId) {
+            appState.currentView = viewId;
+            
+            document.getElementById('nav-insights').classList.remove('active');
+            document.getElementById('nav-themes').classList.remove('active');
+            document.getElementById('nav-metrics').classList.remove('active');
+            document.getElementById('nav-' + viewId).classList.add('active');
+
+            document.getElementById('view-insights').classList.add('hidden');
+            document.getElementById('view-themes').classList.add('hidden');
+            document.getElementById('view-metrics').classList.add('hidden');
+            
+            document.getElementById('view-' + viewId).classList.remove('hidden');
+            document.getElementById('view-' + viewId).classList.add('block');
+        }
+
+        function wrapText(text, maxLen) {
+            const words = text.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (let i = 0; i < words.length; i++) {
+                if ((currentLine + words[i]).length > maxLen) {
+                    if(currentLine.trim() !== "") lines.push(currentLine.trim());
+                    currentLine = words[i] + ' ';
+                } else {
+                    currentLine += words[i] + ' ';
+                }
+            }
+            if(currentLine.trim() !== "") lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const standardTooltip = {
+            callbacks: {
+                title: function(context) {
+                    let label = context[0].chart.data.labels[context[0].dataIndex];
+                    return Array.isArray(label) ? label.join(' ') : label;
+                }
+            }
+        };
+
+        function selectBehavior(index) {
+            appState.activeBehaviorIndex = index;
+            
+            const container = document.getElementById('behavior-btn-container');
+            Array.from(container.children).forEach((btn, i) => {
+                if(i === index) {
+                    btn.classList.add('selected');
+                } else {
+                    btn.classList.remove('selected');
+                }
+            });
+
+            const data = behaviorData[index];
+            document.getElementById('detail-subtitle').innerText = data.subtitle;
+            document.getElementById('detail-title').innerText = data.title;
+            document.getElementById('detail-content').innerText = data.content;
+            
+            if (behaviorChartInstance) {
+                const bgColors = behaviorData.map((_, i) => i === index ? '#f59e0b' : '#0f766e');
+                behaviorChartInstance.data.datasets[0].backgroundColor = bgColors;
+                behaviorChartInstance.update();
+            }
+        }
+
+        function initApp() {
+            const btnContainer = document.getElementById('behavior-btn-container');
+            behaviorData.forEach((b, index) => {
+                const btn = document.createElement('button');
+                btn.className = "behavior-btn text-left p-4 rounded-lg bg-white border border-stone-100 hover:bg-stone-50";
+                btn.innerHTML = `<span class="font-bold text-slate-800">${b.title}</span><span class="block text-xs text-slate-500 mt-1">Selections: ${b.count}</span>`;
+                btn.onclick = () => selectBehavior(index);
+                btnContainer.appendChild(btn);
+            });
+
+            Chart.defaults.font.family = "ui-sans-serif, system-ui, sans-serif";
+            Chart.defaults.color = "#64748b";
+
+            const bLabels = behaviorData.map(b => wrapText(b.title, 16));
+            const bCounts = behaviorData.map(b => b.count);
+            
+            const ctxBehavior = document.getElementById('behaviorBarChart').getContext('2d');
+            behaviorChartInstance = new Chart(ctxBehavior, {
+                type: 'bar',
+                data: {
+                    labels: bLabels,
+                    datasets: [{
+                        label: 'Student Selections',
+                        data: bCounts,
+                        backgroundColor: '#0f766e',
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    onClick: (e, activeEls) => {
+                        if (activeEls.length > 0) {
+                            selectBehavior(activeEls[0].index);
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: standardTooltip
+                    },
+                    scales: {
+                        y: { beginAtZero: true, ticks: { precision: 0 }, grid: { color: '#f5f5f4' } },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+
+            const ctxGrade = document.getElementById('gradeChart').getContext('2d');
+            new Chart(ctxGrade, {
+                type: 'bar',
+                data: {
+                    labels: metricData.grades.labels.map(l => wrapText(l, 16)),
+                    datasets: [{
+                        label: 'Students',
+                        data: metricData.grades.data,
+                        backgroundColor: '#0f766e',
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    plugins: { legend: { display: false }, tooltip: standardTooltip },
+                    scales: {
+                        y: { beginAtZero: true, ticks: { precision: 0 }, grid: { color: '#f5f5f4' } },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+
+            const ctxTime = document.getElementById('timeChart').getContext('2d');
+            new Chart(ctxTime, {
+                type: 'doughnut',
+                data: {
+                    labels: metricData.timeliness.labels,
+                    datasets: [{
+                        data: metricData.timeliness.data,
+                        backgroundColor: ['#14b8a6', '#f43f5e'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    cutout: '75%',
+                    plugins: { 
+                        legend: { position: 'bottom', labels: { boxWidth: 12, usePointStyle: true } },
+                        tooltip: standardTooltip
+                    }
+                }
+            });
+
+            const ctxFormat = document.getElementById('formatChart').getContext('2d');
+            new Chart(ctxFormat, {
+                type: 'pie',
+                data: {
+                    labels: metricData.formatting.labels,
+                    datasets: [{
+                        data: metricData.formatting.data,
+                        backgroundColor: ['#0f766e', '#f59e0b'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    plugins: { 
+                        legend: { position: 'bottom', labels: { boxWidth: 12, usePointStyle: true } },
+                        tooltip: standardTooltip
+                    }
+                }
+            });
+
+            selectBehavior(0);
+        }
+
+        window.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>
