@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 01: Technical Tutorial Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Chosen Palette: Scholarly Professional (White-50 background, Indigo-900 primary, Emerald-600 success) -->
+    <!-- Application Structure Plan: The SPA is designed as a task-oriented "Wizard" interface. It uses a sticky sidebar to separate high-level objectives, the 5-step technical walkthrough, and the interactive rubric. This structure was chosen to reduce cognitive load, allowing students to focus on one specific tool (VS Code vs. GitHub Desktop) at a time. A persistent 'Progress Tracker' provides immediate feedback on completion status. -->
+    <!-- Visualization & Content Choices: 
+         1. Objective -> Goal: Inform -> Method: Contextual text block with structured semantic HTML.
+         2. Tutorial Steps -> Goal: Change/Process -> Method: Interactive Accordion Timeline -> Interaction: Clickable headers to reveal instructions. -> Justification: Breaks a multi-tool workflow into manageable units.
+         3. Rubric Breakdown -> Goal: Compare -> Method: Doughnut Chart (Chart.js) + Weighted Cards -> Interaction: Tooltips and Legend highlights. -> Justification: Replaces the radar chart with a doughnut chart for an immediate "at-a-glance" understanding of point weighting relative to the 100-point total.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+                max-height: 400px;
+            }
+        }
+        .step-card.active {
+            border-left-width: 4px;
+            border-color: #059669; /* emerald-600 */
+            background-color: #ECFDF5; /* emerald-50 */
+        }
+        .step-card.active .step-title {
+            color: #065F46; /* emerald-800 */
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 flex flex-col md:flex-row min-h-screen font-sans antialiased">
+
+    <!-- Sidebar Navigation -->
+    <nav class="w-full md:w-80 bg-slate-900 text-white p-8 flex-shrink-0 sticky top-0 md:h-screen flex flex-col z-20">
+        <div class="mb-10">
+            <h1 class="text-2xl font-black tracking-tight text-white uppercase">Project <span class="text-emerald-400">01</span></h1>
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">Technical Tutorial</p>
+        </div>
+
+        <div class="flex-grow space-y-4">
+            <button onclick="switchTab('objective')" id="tab-objective" class="w-full text-left px-4 py-3 rounded-lg hover:bg-slate-800 transition-colors flex items-center gap-3">
+                <span class="text-lg opacity-50">01</span> <span>Objective</span>
+            </button>
+            <button onclick="switchTab('tutorial')" id="tab-tutorial" class="w-full text-left px-4 py-3 rounded-lg hover:bg-slate-800 transition-colors flex items-center gap-3 active bg-emerald-600 font-bold">
+                <span class="text-lg opacity-50">02</span> <span>Step-by-Step</span>
+            </button>
+            <button onclick="switchTab('rubric')" id="tab-rubric" class="w-full text-left px-4 py-3 rounded-lg hover:bg-slate-800 transition-colors flex items-center gap-3">
+                <span class="text-lg opacity-50">03</span> <span>Grading Rubric</span>
+            </button>
+        </div>
+
+        <div class="mt-auto pt-8 border-t border-slate-700">
+            <h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">Milestone Tracker</h4>
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-xs text-slate-300" id="progress-percent">0% Ready to Submit</span>
+            </div>
+            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                <div id="progress-bar" class="bg-emerald-500 h-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6 md:p-12 lg:p-16 overflow-y-auto">
+        
+        <!-- Tab: Objective -->
+        <section id="content-objective" class="hidden animate-in fade-in duration-500">
+            <div class="max-w-3xl">
+                <h2 class="text-4xl font-black text-slate-900 mb-6 tracking-tight">Bridging Theory & Practice</h2>
+                <p class="text-xl text-slate-600 leading-relaxed mb-8">
+                    Project 01 is your first opportunity to apply the project management principle of **"Scoping"** to a tangible technical task. By first defining the purpose, goals, and limitations of your personal webpage, you will experience how planning makes the technical work of writing HTML more focused and efficient.
+                </p>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
+                        <span class="text-emerald-500 font-black">&#10003;</span> Learning Priorities
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-4 bg-slate-50 rounded-xl">
+                            <h4 class="font-bold text-indigo-900 mb-1">Planning > Coding</h4>
+                            <p class="text-sm text-slate-500">Success is defined by a well-structured document, not a complex design.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl">
+                            <h4 class="font-bold text-indigo-900 mb-1">Semantic Structure</h4>
+                            <p class="text-sm text-slate-500">Learn the "tags" that provide context to search engines and screen readers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab: Step-by-Step Tutorial -->
+        <section id="content-tutorial" class="block animate-in fade-in duration-500">
+            <h2 class="text-4xl font-black text-slate-900 mb-4 tracking-tight">The Technical Workflow</h2>
+            <p class="text-slate-500 mb-10 text-lg">Master the pipeline from your local hard drive to the global web.</p>
+
+            <div class="space-y-6 max-w-4xl">
+                <!-- Step 1 -->
+                <div id="step-1" class="step-card bg-white p-8 rounded-2xl shadow-sm border border-slate-200 cursor-pointer transition-all hover:shadow-md" onclick="toggleStep(1)">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-slate-900 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Workspace</span>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[10px] text-slate-400 uppercase font-bold">Done?</span>
+                            <input type="checkbox" onchange="updateProgress()" class="w-5 h-5 accent-emerald-500" onclick="event.stopPropagation()">
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-black text-slate-800 step-title">Step 1: Open Your Environment</h3>
+                    <div class="step-details mt-6 text-slate-600 hidden border-t pt-6">
+                        <p class="mb-4">Sync your tools before writing code.</p>
+                        <ol class="list-decimal list-inside space-y-3 text-sm bg-slate-50 p-6 rounded-xl border border-slate-100">
+                            <li>Open **GitHub Desktop**.</li>
+                            <li>Select your **Project Repository** (e.g., `project-01`) from the "Current Repository" menu.</li>
+                            <li>Click **"Open in Visual Studio Code."** This ensures all files are saved in the correct place immediately.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div id="step-2" class="step-card bg-white p-8 rounded-2xl shadow-sm border border-slate-200 cursor-pointer transition-all hover:shadow-md" onclick="toggleStep(2)">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-indigo-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Scoping</span>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[10px] text-slate-400 uppercase font-bold">Done?</span>
+                            <input type="checkbox" onchange="updateProgress()" class="w-5 h-5 accent-emerald-500" onclick="event.stopPropagation()">
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-black text-slate-800 step-title">Step 2: Define the Scope (`scope.md`)</h3>
+                    <div class="step-details mt-6 text-slate-600 hidden border-t pt-6">
+                        <p class="mb-4">In VS Code, go to **File > New Text File**, then **Save As...** named exactly `scope.md`.</p>
+                        <p class="mb-4 text-sm font-semibold">Include these headers and detailed responses:</p>
+                        <div class="space-y-2 text-xs font-mono bg-slate-800 text-slate-300 p-6 rounded-xl">
+                            <p class="text-emerald-400"># Project Purpose</p>
+                            <p class="pl-4 mb-2">Why are you building this site? (1-2 sentences)</p>
+                            <p class="text-emerald-400"># Description</p>
+                            <p class="pl-4 mb-2">What will the site contain visually and structurally?</p>
+                            <p class="text-emerald-400"># Desired Results</p>
+                            <p class="pl-4 mb-2">What does success look like for this project?</p>
+                            <p class="text-emerald-400"># Exclusions</p>
+                            <p class="pl-4">What will you NOT include? (e.g., CSS, Javascript)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div id="step-3" class="step-card bg-white p-8 rounded-2xl shadow-sm border border-slate-200 cursor-pointer transition-all hover:shadow-md" onclick="toggleStep(3)">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-emerald-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Coding</span>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[10px] text-slate-400 uppercase font-bold">Done?</span>
+                            <input type="checkbox" onchange="updateProgress()" class="w-5 h-5 accent-emerald-500" onclick="event.stopPropagation()">
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-black text-slate-800 step-title">Step 3: Structure the HTML (`index.html`)</h3>
+                    <div class="step-details mt-6 text-slate-600 hidden border-t pt-6">
+                        <p class="mb-4">Create a new file named `index.html`. Type <kbd class="bg-slate-200 px-1 rounded font-bold">!</kbd> and press Enter for the skeleton.</p>
+                        <div class="p-6 bg-indigo-50 border border-indigo-100 rounded-xl">
+                            <h4 class="font-bold text-indigo-800 text-xs uppercase mb-4 tracking-widest">Required Body Tags:</h4>
+                            <ul class="text-sm space-y-3 text-indigo-900 font-medium">
+                                <li class="flex items-center gap-2"><span>&#9744;</span> <strong>h1</strong> - Your Full Name</li>
+                                <li class="flex items-center gap-2"><span>&#9744;</span> <strong>h2</strong> - Your Major / Interests</li>
+                                <li class="flex items-center gap-2"><span>&#9744;</span> <strong>p (x2)</strong> - Career Goals paragraphs</li>
+                                <li class="flex items-center gap-2"><span>&#9744;</span> <strong>ul/li</strong> - List of at least 3 hobbies</li>
+                                <li class="flex items-center gap-2"><span>&#9744;</span> <strong>a</strong> - Hyperlink to your GitHub Profile</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div id="step-4" class="step-card bg-white p-8 rounded-2xl shadow-sm border border-slate-200 cursor-pointer transition-all hover:shadow-md" onclick="toggleStep(4)">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-slate-900 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Cloud Sync</span>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[10px] text-slate-400 uppercase font-bold">Done?</span>
+                            <input type="checkbox" onchange="updateProgress()" class="w-5 h-5 accent-emerald-500" onclick="event.stopPropagation()">
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-black text-slate-800 step-title">Step 4: Push to GitHub</h3>
+                    <div class="step-details mt-6 text-slate-600 hidden border-t pt-6">
+                        <p class="mb-4">Ensure your work is saved and published to the web.</p>
+                        <ol class="list-decimal list-inside space-y-3 text-sm bg-slate-50 p-6 rounded-xl border border-slate-100 font-medium">
+                            <li>Go back to **GitHub Desktop**.</li>
+                            <li>Type a clear Summary (e.g., "Complete Project 01 Code").</li>
+                            <li>Click **Commit to main**.</li>
+                            <li>Click **Push origin** at the top bar.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div id="step-5" class="step-card bg-white p-8 rounded-2xl shadow-sm border border-slate-200 cursor-pointer transition-all hover:shadow-md" onclick="toggleStep(5)">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-rose-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Submission</span>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[10px] text-slate-400 uppercase font-bold">Done?</span>
+                            <input type="checkbox" onchange="updateProgress()" class="w-5 h-5 accent-emerald-500" onclick="event.stopPropagation()">
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-black text-slate-800 step-title">Step 5: ZIP & Upload</h3>
+                    <div class="step-details mt-6 text-slate-600 hidden border-t pt-6">
+                        <p class="mb-4">Canvas requires a single file submission.</p>
+                        <ol class="list-decimal list-inside space-y-3 text-sm bg-rose-50 p-6 rounded-xl border border-rose-100 text-rose-900 font-medium">
+                            <li>In GitHub Desktop: **Repository > Show in Explorer/Finder**.</li>
+                            <li>Select BOTH `index.html` and `scope.md`.</li>
+                            <li>**Right-click > Compress** (Win: ZIP file / Mac: Compress).</li>
+                            <li>Verify the ZIP is under 1MB and upload to Canvas.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab: Rubric -->
+        <section id="content-rubric" class="hidden animate-in fade-in duration-500">
+            <h2 class="text-4xl font-black text-slate-900 mb-4 tracking-tight">Grading Criteria</h2>
+            <p class="text-slate-500 mb-10 text-lg">Hover over segments to see specific point totals.</p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-6xl">
+                <!-- Doughnut Chart Container -->
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-200 flex flex-col items-center">
+                    <h3 class="text-center font-bold text-slate-400 uppercase tracking-widest text-[10px] mb-8">Point Weight Distribution</h3>
+                    <div class="chart-container">
+                        <canvas id="rubricChart"></canvas>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <p class="text-4xl font-black text-slate-800">100</p>
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Total Possible Points</p>
+                    </div>
+                </div>
+
+                <!-- Rubric Cards -->
+                <div class="space-y-4">
+                    <div class="p-6 bg-white border-l-8 border-indigo-500 shadow-sm rounded-2xl transition-transform hover:scale-[1.02]">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-black text-indigo-900 text-xl">Project Scoping</h4>
+                            <span class="text-xs font-bold bg-indigo-100 text-indigo-600 px-2 py-1 rounded">40 Points</span>
+                        </div>
+                        <p class="text-sm text-slate-500 leading-relaxed italic mb-3">Goal: Thoughtful Planning</p>
+                        <p class="text-xs text-slate-600">Points are awarded for detailed descriptions in `scope.md`. Vague or missing sections result in significant deductions.</p>
+                    </div>
+
+                    <div class="p-6 bg-white border-l-8 border-emerald-500 shadow-sm rounded-2xl transition-transform hover:scale-[1.02]">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-black text-emerald-900 text-xl">Technical execution</h4>
+                            <span class="text-xs font-bold bg-emerald-100 text-emerald-600 px-2 py-1 rounded">50 Points</span>
+                        </div>
+                        <p class="text-sm text-slate-500 leading-relaxed italic mb-3">Goal: Valid Semantic HTML</p>
+                        <p class="text-xs text-slate-600">Ensure all tags are properly nested and indented. The page must render correctly in a standard web browser.</p>
+                    </div>
+
+                    <div class="p-6 bg-white border-l-8 border-slate-500 shadow-sm rounded-2xl transition-transform hover:scale-[1.02]">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-black text-slate-900 text-xl">File Management</h4>
+                            <span class="text-xs font-bold bg-slate-100 text-slate-600 px-2 py-1 rounded">10 Points</span>
+                        </div>
+                        <p class="text-sm text-slate-500 leading-relaxed italic mb-3">Goal: Professional Submission</p>
+                        <p class="text-xs text-slate-600">Files must be named exactly as requested. Submission must be a single `.zip` file without sub-folders.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Tab Management
+        function switchTab(tabId) {
+            document.querySelectorAll('nav button').forEach(btn => {
+                btn.classList.remove('bg-emerald-600', 'font-bold');
+            });
+            document.getElementById('tab-' + tabId).classList.add('bg-emerald-600', 'font-bold');
+
+            document.querySelectorAll('main section').forEach(sec => {
+                sec.classList.add('hidden');
+                sec.classList.remove('block');
+            });
+            document.getElementById('content-' + tabId).classList.remove('hidden');
+            document.getElementById('content-' + tabId).classList.add('block');
+        }
+
+        // Accordion Management
+        function toggleStep(num) {
+            const card = document.getElementById('step-' + num);
+            const details = card.querySelector('.step-details');
+            const isActive = !details.classList.contains('hidden');
+
+            // Close others
+            document.querySelectorAll('.step-card').forEach(c => {
+                c.classList.remove('active');
+                c.querySelector('.step-details').classList.add('hidden');
+            });
+
+            if (!isActive) {
+                card.classList.add('active');
+                details.classList.remove('hidden');
+            }
+        }
+
+        // Progress Tracking
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            let completed = 0;
+            checkboxes.forEach(cb => { if (cb.checked) completed++; });
+            
+            const percent = Math.round((completed / 5) * 100);
+            document.getElementById('progress-bar').style.width = percent + '%';
+            document.getElementById('progress-percent').innerText = percent + '% Ready to Submit';
+        }
+
+        // Chart.js Label Wrapping (16-char logic)
+        function wrapLabel(label) {
+            if (label.length <= 16) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > 16) {
+                    lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            lines.push(currentLine.trim());
+            return lines;
+        }
+
+        // Initialize Doughnut Chart
+        function initRubricChart() {
+            const labels = [
+                'Project Scoping', 
+                'HTML Execution', 
+                'File Management'
+            ].map(l => wrapLabel(l));
+
+            new Chart(document.getElementById('rubricChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: [40, 50, 10],
+                        backgroundColor: ['#6366f1', '#10b981', '#64748b'],
+                        borderWidth: 0,
+                        hoverOffset: 20
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    cutout: '75%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 25,
+                                usePointStyle: true,
+                                boxWidth: 8,
+                                font: { size: 10, weight: 'bold' }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` ${context.raw} Points`;
+                                },
+                                title: function(items) {
+                                    const label = items[0].label;
+                                    return Array.isArray(label) ? label.join(' ') : label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        window.onload = function() {
+            initRubricChart();
+            // Start on Step-by-Step view
+            switchTab('tutorial');
+        };
+    </script>
+</body>
+</html>
