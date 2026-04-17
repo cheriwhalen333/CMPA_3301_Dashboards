@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMPA 3301: Technical File Reference & Integration Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        code, pre {
+            font-family: 'Fira Code', monospace;
+        }
+        .section-card {
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .arrow-box {
+            background: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            color: #475569;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12 text-gray-800">
+
+    <div class="max-w-5xl mx-auto">
+        
+        <!-- Header -->
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">CMPA 3301: Technical File Reference</h1>
+            <p class="text-gray-600">A guide to understanding HTML, Markdown, and CSS integration.</p>
+        </header>
+
+        <!-- Section I: Comparison Table -->
+        <section class="section-card">
+            <h2 class="text-xl font-bold mb-6 text-blue-800 flex items-center gap-2 border-b pb-2">
+                <span>📊</span> I. File Type Comparison & Contrast
+            </h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-50">
+                            <th class="p-4 border-b font-semibold text-gray-700">Feature</th>
+                            <th class="p-4 border-b font-semibold text-gray-700">HTML (.html)</th>
+                            <th class="p-4 border-b font-semibold text-gray-700">Markdown (.md)</th>
+                            <th class="p-4 border-b font-semibold text-gray-700">CSS (.css)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm">
+                        <tr>
+                            <td class="p-4 border-b font-medium">Full Name</td>
+                            <td class="p-4 border-b">HyperText Markup Language</td>
+                            <td class="p-4 border-b">Markdown</td>
+                            <td class="p-4 border-b">Cascading Style Sheets</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 border-b font-medium">Primary Purpose</td>
+                            <td class="p-4 border-b">Define the structure and content of a webpage.</td>
+                            <td class="p-4 border-b">Create easy-to-read technical documentation and plans.</td>
+                            <td class="p-4 border-b">Define the visual style and presentation of a webpage.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 border-b font-medium">Syntax Style</td>
+                            <td class="p-4 border-b">Uses "Tags" in angle brackets (e.g., <code>&lt;h1&gt;</code>).</td>
+                            <td class="p-4 border-b">Uses "Plain text" symbols (e.g., <code># Header</code>).</td>
+                            <td class="p-4 border-b">Uses "Selectors" and "Rules" (e.g., <code>h1 { color: blue; }</code>).</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 border-b font-medium">Complexity</td>
+                            <td class="p-4 border-b">High (Strict nesting rules).</td>
+                            <td class="p-4 border-b">Low (Human-readable).</td>
+                            <td class="p-4 border-b">Medium (Rule hierarchy).</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 border-b font-medium">Role in Course</td>
+                            <td class="p-4 border-b text-blue-700 font-semibold">The "Bones" of the website.</td>
+                            <td class="p-4 border-b text-green-700 font-semibold">The "Plan" (Scope) of the site.</td>
+                            <td class="p-4 border-b text-purple-700 font-semibold">The "Skin" or design of site.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section II: Coding vs Output -->
+        <section class="section-card">
+            <h2 class="text-xl font-bold mb-6 text-blue-800 flex items-center gap-2 border-b pb-2">
+                <span>🖥️</span> II. Coding vs. Output Visualization
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Markdown Example -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-gray-700">Markdown (.md)</h3>
+                    <div class="bg-gray-100 p-4 rounded border text-xs">
+                        <p class="font-semibold text-gray-500 mb-2 underline italic">Coding View:</p>
+                        <pre># Project Title
+* Item One
+* Item Two</pre>
+                    </div>
+                    <div class="bg-white p-4 rounded border shadow-inner">
+                        <p class="font-semibold text-gray-500 mb-2 underline italic">Browser/Viewer Output:</p>
+                        <h4 class="text-lg font-bold border-b mb-2">Project Title</h4>
+                        <ul class="list-disc list-inside">
+                            <li>Item One</li>
+                            <li>Item Two</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- HTML Example -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-gray-700">HTML (.html)</h3>
+                    <div class="bg-gray-800 text-green-400 p-4 rounded border text-xs">
+                        <p class="font-semibold text-gray-400 mb-2 underline italic">Coding View:</p>
+                        <pre>&lt;header&gt;
+  &lt;h1&gt;My Website&lt;/h1&gt;
+&lt;/header&gt;
+&lt;main&gt;
+  &lt;p&gt;Welcome to my page.&lt;/p&gt;
+&lt;/main&gt;</pre>
+                    </div>
+                    <div class="bg-white p-4 rounded border shadow-inner">
+                        <p class="font-semibold text-gray-500 mb-2 underline italic">Browser Output:</p>
+                        <h1 class="text-2xl font-bold">My Website</h1>
+                        <p class="mt-2">Welcome to my page.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section III: CSS Logic -->
+        <section class="section-card">
+            <h2 class="text-xl font-bold mb-6 text-blue-800 flex items-center gap-2 border-b pb-2">
+                <span>🎨</span> III. How CSS Works with HTML
+            </h2>
+            <p class="mb-6">CSS does not contain content; it only contains instructions for how the HTML content should look. Below is exactly how they "talk" to each other.</p>
+            
+            <div class="grid md:grid-cols-3 gap-4 text-sm mb-8">
+                <div class="p-4 bg-blue-50 border border-blue-100 rounded-lg">
+                    <p class="font-bold text-blue-800 mb-1">1. Linkage</p>
+                    <p>The <code>&lt;link&gt;</code> tag acts as a bridge, telling the HTML where to find its styles.</p>
+                </div>
+                <div class="p-4 bg-green-50 border border-green-100 rounded-lg">
+                    <p class="font-bold text-green-800 mb-1">2. Selection</p>
+                    <p>CSS uses a "Selector" (the tag name) to target exactly which part of the HTML to change.</p>
+                </div>
+                <div class="p-4 bg-purple-50 border border-purple-100 rounded-lg">
+                    <p class="font-bold text-purple-800 mb-1">3. Decoration</p>
+                    <p>The "Rules" inside the curly braces define the visual changes (colors, sizes, etc.).</p>
+                </div>
+            </div>
+
+            <!-- Code Connection Visualization -->
+            <div class="space-y-6">
+                <div class="bg-gray-900 rounded-xl p-6 overflow-hidden">
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <!-- HTML Part -->
+                        <div>
+                            <p class="text-xs font-bold text-blue-400 uppercase tracking-widest mb-4">index.html</p>
+                            <pre class="text-sm text-gray-300"><code>&lt;head&gt;
+  <span class="text-blue-400 font-bold">&lt;link rel="stylesheet" href="style.css"&gt;</span> <span class="text-gray-500">// <-- Bridge</span>
+&lt;/head&gt;
+&lt;body&gt;
+  <span class="text-green-400 font-bold">&lt;h1&gt;</span>Hello World<span class="text-green-400 font-bold">&lt;/h1&gt;</span> <span class="text-gray-500">// <-- The Target</span>
+&lt;/body&gt;</code></pre>
+                        </div>
+                        <!-- CSS Part -->
+                        <div>
+                            <p class="text-xs font-bold text-purple-400 uppercase tracking-widest mb-4">style.css</p>
+                            <pre class="text-sm text-gray-300"><code><span class="text-green-400 font-bold">h1</span> { <span class="text-gray-500">// <-- The Selector (Finding the target)</span>
+  <span class="text-purple-400">color: blue;</span> <span class="text-gray-500">// Changing text color</span>
+  <span class="text-purple-400">font-size: 24px;</span> <span class="text-gray-500">// Formatting size</span>
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Explanation Box -->
+                <div class="arrow-box">
+                    <p class="mb-2"><strong>How they connect:</strong></p>
+                    <ul class="space-y-2">
+                        <li><strong>Linkage:</strong> The line <code>&lt;link rel="stylesheet" href="style.css"&gt;</code> in the HTML tells the browser: "Import the rules from style.css."</li>
+                        <li><strong>Selection:</strong> The <code>h1</code> in the CSS acts as an <strong>arrow &rarr;</strong> pointing directly to the <code>&lt;h1&gt;</code> tags in the HTML.</li>
+                        <li><strong>Formatting:</strong> The CSS is formatting the <strong>visual properties</strong> of the content found inside that specific HTML tag.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section IV: The Puzzle -->
+        <section class="section-card border-l-4 border-orange-500 bg-orange-50">
+            <h2 class="text-xl font-bold mb-6 text-orange-800 flex items-center gap-2">
+                <span>🧩</span> IV. The Project 3 Puzzle
+            </h2>
+            <div class="space-y-4 text-sm leading-relaxed">
+                <p>Think of Project 3 as a completed puzzle where every file type serves a distinct, vital role:</p>
+                <ul class="space-y-3">
+                    <li><strong>The Scope (Markdown):</strong> This is your <strong>"Picture on the Box."</strong> It defines the goals and boundaries.</li>
+                    <li><strong>The Structure (HTML):</strong> These are the <strong>"Puzzle Pieces."</strong> Semantic tags create the shapes (Header, Main, Footer).</li>
+                    <li><strong>The Presentation (CSS):</strong> This is the <strong>"Color and Detail."</strong> It transforms plain elements into a professional brand.</li>
+                    <li><strong>The Workflow (GitHub):</strong> This is the <strong>"Puzzle Board."</strong> The platform where you host, track, and publish.</li>
+                </ul>
+                <div class="mt-6 p-4 bg-white border border-orange-200 rounded-lg font-semibold text-orange-900">
+                    ⚠️ Mastery of Project 1 is essential: You cannot effectively style or manage a project without a solid structural foundation.
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-400 text-xs py-10">
+            CMPA 3301 | Fundamentals of Computing Applications | © 2026
+        </footer>
+    </div>
+
+</body>
+</html>
