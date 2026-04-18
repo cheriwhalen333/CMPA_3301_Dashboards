@@ -65,18 +65,19 @@
             <p class="text-xs font-bold text-teal-600 uppercase tracking-widest mt-1">Discussion 04 Analysis</p>
         </div>
         <div class="flex md:flex-col p-4 gap-2 overflow-x-auto md:overflow-visible">
-            <button onclick="navigate('insights')" id="nav-insights" class="nav-button active whitespace-nowrap text-left px-4 py-3 rounded-lg text-sm text-slate-600 hover:bg-stone-100 flex-1 md:flex-none">&#12776F; Executive Insights</button>
+            <button onclick="navigate('insights')" id="nav-insights" class="nav-button active whitespace-nowrap text-left px-4 py-3 rounded-lg text-sm text-slate-600 hover:bg-stone-100 flex-1 md:flex-none">&#11088; Insights & Exemplars</button>
             <button onclick="navigate('themes')" id="nav-themes" class="nav-button whitespace-nowrap text-left px-4 py-3 rounded-lg text-sm text-slate-600 hover:bg-stone-100 flex-1 md:flex-none">&#128737; Risk Themes</button>
-            <button onclick="navigate('metrics')" id="nav-metrics" class="nav-button whitespace-nowrap text-left px-4 py-3 rounded-lg text-sm text-slate-600 hover:bg-stone-100 flex-1 md:flex-none">&#128202; Cohort Metrics</button>
+            <button onclick="navigate('metrics')" id="nav-metrics" class="nav-button whitespace-nowrap text-left px-4 py-3 rounded-lg text-sm text-slate-600 hover:bg-stone-100 flex-1 md:flex-none">&#128202; Class Success & Feedback</button>
         </div>
     </nav>
 
     <main class="flex-1 p-6 md:p-10 overflow-y-auto w-full">
         
+        <!-- Insights & Exemplars Section -->
         <section id="view-insights" class="block animate-fade-in">
             <div class="max-w-5xl mx-auto">
                 <header class="mb-8">
-                    <h2 class="text-3xl font-extrabold text-slate-800 mb-4">Executive Insights & Exemplars</h2>
+                    <h2 class="text-3xl font-extrabold text-slate-800 mb-4">Insights & Exemplars</h2>
                     <div class="instructor-message p-6 rounded-r-lg shadow-sm mb-6">
                         <h3 class="text-sm font-bold text-teal-700 uppercase tracking-widest mb-2 italic">A Note from Instructor Whalen</h3>
                         <p class="text-slate-700 leading-relaxed">
@@ -84,98 +85,99 @@
                         </p>
                     </div>
                     <p class="text-lg text-slate-600 leading-relaxed border-l-4 border-amber-500 pl-4 bg-white p-4 rounded-r-lg shadow-sm">
-                        This week, the cohort focused on the <strong>Impact x Probability</strong> formula to analyze Project 01 hurdles. By identifying these "Project 01 Risks," we are shifting from reactive troubleshooting to proactive planning—a core competency for successful project managers.
+                        This week, we looked at how to measure the "Risk" in a project using the <strong>Impact x Probability</strong> formula. It’s wonderful to see you shifting from simply doing the work to thinking like a project manager!
                     </p>
                 </header>
 
                 <div class="mt-8">
                     <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center">&#11088; Risk Strategy Standouts</h3>
-                    <p class="text-sm text-slate-500 mb-6">These students provided exemplary models for quantifying risk and applying the TAME framework to technical tasks.</p>
+                    <p class="text-sm text-slate-500 mb-6">These students did a great job showing how to apply our textbook frameworks to real technical hurdles.</p>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div class="exemplar-card bg-white p-6 rounded-xl shadow-sm border border-stone-200">
                             <div class="text-amber-500 text-2xl mb-2">&#128197;</div>
                             <h4 class="font-black text-lg text-slate-800">Adrian</h4>
                             <p class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-3">Time Management</p>
-                            <p class="text-sm text-slate-600">Provided a detailed 5-day mitigation schedule, demonstrating that a plan is only as good as the time allocated to execute it.</p>
+                            <p class="text-sm text-slate-600">Adrian built a detailed 5-day schedule to show that planning the work is only half the battle—you have to plan the <em>time</em> too.</p>
                         </div>
 
                         <div class="exemplar-card bg-white p-6 rounded-xl shadow-sm border border-stone-200">
                             <div class="text-amber-500 text-2xl mb-2">&#9875;</div>
                             <h4 class="font-black text-lg text-slate-800">Amy</h4>
                             <p class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-3">Scope Alignment</p>
-                            <p class="text-sm text-slate-600">Correctly identified the <strong>Scope Statement</strong> as the "anchor" that prevents technical drift in the HTML development phase.</p>
+                            <p class="text-sm text-slate-600">Amy highlighted that the <strong>Scope Statement</strong> is the "anchor" that keeps everything from floating away once you start coding.</p>
                         </div>
 
                         <div class="exemplar-card bg-white p-6 rounded-xl shadow-sm border border-stone-200">
                             <div class="text-amber-500 text-2xl mb-2">&#128269;</div>
                             <h4 class="font-black text-lg text-slate-800">Joseph</h4>
                             <p class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-3">Technical Syntax</p>
-                            <p class="text-sm text-slate-600">Used professional **linters** and real-time testing to <strong>Eliminate</strong> the risk of broken code before the final submission.</p>
+                            <p class="text-sm text-slate-600">Joseph used professional tools to <strong>Eliminate</strong> risk, checking his work while he was typing instead of waiting until the end.</p>
                         </div>
 
                         <div class="exemplar-card bg-white p-6 rounded-xl shadow-sm border border-stone-200">
                             <div class="text-amber-500 text-2xl mb-2">&#128246;</div>
                             <h4 class="font-black text-lg text-slate-800">Hugo</h4>
                             <p class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-3">Environmental Risk</p>
-                            <p class="text-sm text-slate-600">Identified a mobile hotspot as a <strong>Transfer/Mitigate</strong> tool, showing how backup infrastructure lowers the probability of a missed deadline.</p>
+                            <p class="text-sm text-slate-600">Hugo showed us that "risks" aren't just in the code; they're in our environment, like having a backup hotspot for when WiFi fails.</p>
                         </div>
 
                         <div class="exemplar-card bg-white p-6 rounded-xl shadow-sm border border-stone-200">
                             <div class="text-amber-500 text-2xl mb-2">&#128208;</div>
                             <h4 class="font-black text-lg text-slate-800">Susan</h4>
                             <p class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-3">Alignment Analysis</p>
-                            <p class="text-sm text-slate-600">Perfectly quantified the high-score (20) of instructions misalignment, highlighting why checklists are vital in complex projects.</p>
+                            <p class="text-sm text-slate-600">Susan perfectly used a high score to explain why misunderstanding a prompt is one of the biggest dangers to a project's success.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Risk Themes Section -->
         <section id="view-themes" class="hidden animate-fade-in">
             <div class="max-w-6xl mx-auto">
                 <header class="mb-8">
                     <h2 class="text-3xl font-extrabold text-slate-800 mb-4">Risk Themes & TAME Application</h2>
                     <p class="text-lg text-slate-600 leading-relaxed border-l-4 border-teal-600 pl-4 bg-white p-4 rounded-r-lg shadow-sm mb-6">
-                        This section analyzes how the cohort chose to handle the identified risks using the <strong>TAME</strong> framework. While "Mitigation" remains the standard approach, we saw several students move toward "Elimination" through technical automation and "Acceptance" for unavoidable real-life schedule conflicts.
+                        This section breaks down how we chose to handle our risks using the <strong>TAME</strong> method. Most of you chose to "Mitigate" (reduce) the risk, but it was great to see some students "Accepting" things they couldn't control.
                     </p>
                     
                     <!-- TAME Method Summary -->
                     <div class="bg-slate-800 text-white p-8 rounded-xl shadow-lg mb-8">
                         <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
                             <div>
-                                <h3 class="text-amber-400 font-bold uppercase tracking-widest text-sm mb-1">PMUPM Chapter 4 Reference</h3>
-                                <h4 class="text-2xl font-black">The TAME Framework</h4>
+                                <h3 class="text-amber-400 font-bold uppercase tracking-widest text-sm mb-1">Textbook Reference: PMUPM Ch. 4</h3>
+                                <h4 class="text-2xl font-black">How we TAME a Risk</h4>
                             </div>
-                            <div class="mt-4 md:mt-0 bg-slate-700 p-4 rounded-lg border border-slate-600">
-                                <p class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-tighter">Risk Calculation Formula</p>
-                                <p class="text-xl font-mono text-amber-500">Actual Risk = Impact &times; Probability</p>
+                            <div class="mt-4 md:mt-0 bg-slate-700 p-4 rounded-lg border border-slate-600 text-center">
+                                <p class="text-xs font-bold text-slate-400 uppercase mb-1 tracking-tighter">Our Formula</p>
+                                <p class="text-xl font-mono text-amber-500">Risk Score = Impact &times; Probability</p>
                             </div>
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                             <div class="bg-slate-700/50 p-4 rounded-lg border border-slate-600">
                                 <span class="text-teal-400 font-black text-xl mb-1 block">Transfer</span>
-                                <p class="text-xs text-slate-300">Shifting the responsibility or burden of a risk to a third party or backup system.</p>
+                                <p class="text-xs text-slate-300">Passing the problem to someone else or a backup system.</p>
                             </div>
                             <div class="bg-slate-700/50 p-4 rounded-lg border border-slate-600">
                                 <span class="text-teal-400 font-black text-xl mb-1 block">Accept</span>
-                                <p class="text-xs text-slate-300">Acknowledging the risk exists and preparing to deal with the consequences if they occur.</p>
+                                <p class="text-xs text-slate-300">Knowing the trouble might come and being ready for it.</p>
                             </div>
                             <div class="bg-slate-700/50 p-4 rounded-lg border border-slate-600">
                                 <span class="text-teal-400 font-black text-xl mb-1 block">Mitigate</span>
-                                <p class="text-xs text-slate-300">Proactively taking steps to reduce the likelihood (probability) or the severity (impact).</p>
+                                <p class="text-xs text-slate-300">Taking steps to make the risk less likely or less harmful.</p>
                             </div>
                             <div class="bg-slate-700/50 p-4 rounded-lg border border-slate-600">
                                 <span class="text-teal-400 font-black text-xl mb-1 block">Eliminate</span>
-                                <p class="text-xs text-slate-300">Changing the project plan or technical approach to remove the risk entirely.</p>
+                                <p class="text-xs text-slate-300">Changing the plan to remove the risk completely.</p>
                             </div>
                         </div>
                     </div>
                 </header>
 
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 mb-8">
-                    <h3 class="text-lg font-bold text-slate-800 mb-2">TAME Strategy Frequency</h3>
-                    <p class="text-sm text-slate-500 mb-4">Distribution of strategies chosen to handle Project 01 risks. Click a bar to view qualitative insights.</p>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">How our class handled risks</h3>
+                    <p class="text-sm text-slate-500 mb-4">This chart shows the strategies you chose. Click a bar to see how we applied them.</p>
                     <div class="chart-container">
                         <canvas id="behaviorBarChart"></canvas>
                     </div>
@@ -187,48 +189,100 @@
                     
                     <div class="w-full md:w-2/3 bg-white p-8 rounded-xl shadow-sm border border-stone-200 min-h-[300px]">
                         <h4 class="text-sm font-bold text-amber-500 uppercase tracking-widest mb-2" id="detail-subtitle">Select a strategy</h4>
-                        <h3 class="text-2xl font-black text-slate-800 mb-4" id="detail-title">Framework Synthesis</h3>
-                        <p class="text-slate-600 text-lg leading-relaxed" id="detail-content">Select a strategy from the menu to see how the cohort applied it to Project 01.</p>
+                        <h3 class="text-2xl font-black text-slate-800 mb-4" id="detail-title">Class Highlights</h3>
+                        <p class="text-slate-600 text-lg leading-relaxed" id="detail-content">Choose a strategy on the left to see what we learned as a group.</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Cohort Metrics & Feedback Section -->
         <section id="view-metrics" class="hidden animate-fade-in">
             <div class="max-w-5xl mx-auto">
-                <header class="mb-8">
-                    <h2 class="text-3xl font-extrabold text-slate-800 mb-4">Cohort Discussion Metrics</h2>
+                <header class="mb-12">
+                    <h2 class="text-3xl font-extrabold text-slate-800 mb-4">How we did as a class</h2>
                     <p class="text-lg text-slate-600 leading-relaxed border-l-4 border-teal-600 pl-4 bg-white p-4 rounded-r-lg shadow-sm">
-                        Qualitative success is paired here with quantitative tracking. We are monitoring the average risk perceptions of the class and identifying common areas for technical improvement, such as the consistent use of APA style citations.
+                        I am so proud of the honesty and hard work shown in this discussion. It’s not easy to look at a project and talk about what might go wrong, but you all did it beautifully. Here is a look at how we felt about the risks and where we can keep growing together.
                     </p>
                 </header>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <!-- High-Level Numbers -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
                     <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 flex flex-col">
-                        <h3 class="text-lg font-bold text-slate-800 mb-1">Actual Risk Perception</h3>
-                        <p class="text-xs text-slate-500 mb-4">Avg score: 15.4 / 25. Distribution of Risk Formula results.</p>
+                        <h3 class="text-lg font-bold text-slate-800 mb-1">How risky did Project 01 feel?</h3>
+                        <p class="text-xs text-slate-500 mb-4">Most of you gave your risks a score of 12-16 out of 25. This tells me you were being careful and thoughtful about the technical requirements.</p>
                         <div class="chart-container flex-grow">
                             <canvas id="gradeChart"></canvas>
                         </div>
                     </div>
 
                     <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 flex flex-col">
-                        <h3 class="text-lg font-bold text-slate-800 mb-1">Top Risk Categories</h3>
-                        <p class="text-xs text-slate-500 mb-4">Thematic focus of the initial posts.</p>
+                        <h3 class="text-lg font-bold text-slate-800 mb-1">What were our biggest worries?</h3>
+                        <p class="text-xs text-slate-500 mb-4">Understanding instructions was the top risk identified. This shows how much you value getting the work right!</p>
                         <div class="chart-container flex-grow">
                             <canvas id="timeChart"></canvas>
                         </div>
                     </div>
                 </div>
 
+                <!-- Teacher Feedback Highlights -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-black text-slate-800 mb-6 flex items-center gap-2">
+                        <span class="text-teal-600">✍️</span> Teacher's Highlights & Shout-outs
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-lg border border-stone-200 text-sm shadow-sm">
+                            <p class="font-bold text-slate-800">Luis Alvarez</p>
+                            <p class="text-slate-600 italic">"I loved your unique look at weather/wifi risks. Working ahead was a smart way to stay safe!"</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-stone-200 text-sm shadow-sm">
+                            <p class="font-bold text-slate-800">Donna Baca</p>
+                            <p class="text-slate-600 italic">"Your reflection on 404 errors was very helpful for other students to read. Great troubleshooting!"</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-stone-200 text-sm shadow-sm">
+                            <p class="font-bold text-slate-800">Blaire Bingham</p>
+                            <p class="text-slate-600 italic">"Excellent use of cross-referencing to eliminate doubt. You showed a lot of confidence here."</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-stone-200 text-sm shadow-sm">
+                            <p class="font-bold text-slate-800">Tristen Dellinger</p>
+                            <p class="text-slate-600 italic">"We've all had those 'mini heart attack' moments with file saving! Your TAME application was spot on."</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-stone-200 text-sm shadow-sm">
+                            <p class="font-bold text-slate-800">Adrian Fuentes</p>
+                            <p class="text-slate-600 italic">"A detailed mitigation schedule is the mark of a true project manager. Outstanding work."</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-stone-200 text-sm shadow-sm">
+                            <p class="font-bold text-slate-800">Amy Gardner</p>
+                            <p class="text-slate-600 italic">"I loved how you called the scope an 'anchor.' That is the perfect way to describe its role."</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-stone-200 text-sm shadow-sm">
+                            <p class="font-bold text-slate-800">Susan Gifford</p>
+                            <p class="text-slate-600 italic">"Perfect analysis of why alignment matters. Your checklist idea is a great tip for the whole class."</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-stone-200 text-sm shadow-sm">
+                            <p class="font-bold text-slate-800">Latoya Masters</p>
+                            <p class="text-slate-600 italic">"Great catch on the list formatting requirements. Using the preview tool is the best way to catch those errors."</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-stone-200 text-sm shadow-sm">
+                            <p class="font-bold text-slate-800">Katy Nance</p>
+                            <p class="text-slate-600 italic">"Your 'Measure twice, cut once' approach is exactly what we need for high-stakes projects. Very thoughtful."</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-stone-200 text-sm shadow-sm">
+                            <p class="font-bold text-slate-800">Joseph Paris</p>
+                            <p class="text-slate-600 italic">"Using a code linter was an excellent technical strategy. Verifying as you type is a huge time saver!"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- APA Reminder -->
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 w-full md:w-1/2 mx-auto">
-                    <h3 class="text-lg font-bold text-slate-800 mb-1 text-center">APA Citation Adherence</h3>
-                    <p class="text-xs text-slate-500 mb-4 text-center">Tracking "Good-Faith" attempts at APA citations.</p>
+                    <h3 class="text-lg font-bold text-slate-800 mb-1 text-center">A tiny reminder: Citations</h3>
+                    <p class="text-xs text-slate-500 mb-4 text-center">Let's keep working on getting our APA style book references right.</p>
                     <div class="chart-container h-64">
                         <canvas id="formatChart"></canvas>
                     </div>
                     <div class="mt-4 p-3 bg-amber-50 rounded text-amber-800 text-sm font-medium border border-amber-200 text-center">
-                        Note: 35% of students missed the required textbook citation for the risk formula. This is a rubric requirement for all discussion posts.
+                        Note: About 35% of us missed the textbook citation this week. Let's try to get that in our posts for next week!
                     </div>
                 </div>
             </div>
@@ -246,33 +300,33 @@
             {
                 title: "Mitigate",
                 count: 26,
-                subtitle: "Lowering Impact & Probability",
-                content: "Mitigation was the strategy of choice for 82% of the cohort. Students like Mark and Susan utilized checklists, VS Code previews, and repeated instruction reviews to reduce the 'Probability' of a misunderstanding before it affected the final 'Impact' on their grade."
+                subtitle: "Reducing the Trouble",
+                content: "Mitigation was the favorite choice for almost everyone (82% of the class). Using things like checklists and reading the rubric before turning in work helped us feel much more confident about our grades."
             },
             {
                 title: "Eliminate",
                 count: 4,
-                subtitle: "Removing the Risk Entirely",
-                content: "We saw advanced strategies here: Joseph and Jalen used technical tools (linters/tutorials) and early clarification to ensure the risk of 'broken code' was removed before submission. This is the gold standard for high-stakes technical projects."
+                subtitle: "Stopping the Risk Early",
+                content: "Some of you were very proactive! By using technical tools like linters and asking me questions on Day 1, you removed the chance of an error entirely. This is exactly how experts handle big projects."
             },
             {
                 title: "Accept",
                 count: 3,
-                subtitle: "Acknowledging Real-Life Friction",
-                content: "Timothy and Eric used Acceptance effectively for risks they couldn't control—like the 'waves' of project discovery or unavoidable schedule conflicts with their small businesses or professional travel. Acknowledging these risks allowed them to stay flexible."
+                subtitle: "Being Ready for Life",
+                content: "Life happens—travel, work conflicts, and busy families. It was great to see students accepting these realities and planning for them rather than letting them cause stress."
             },
             {
                 title: "Transfer",
                 count: 2,
-                subtitle: "Shifting the Load",
-                content: "Hugo and Cassandra provided unique examples of shifting the risk to backup systems (Hotspots) or collaborative resources (Peer mentors) to ensure the project timeline remained on track despite environmental hurdles."
+                subtitle: "Having a Backup",
+                content: "Having a mobile hotspot or asking a peer for help are great ways to 'Transfer' a risk. You showed that being part of a team and having backup systems keeps a project on track."
             }
         ];
 
         const metricData = {
-            riskScores: { labels: ["High (20-25)", "Medium (12-16)", "Low (4-9)"], data: [12, 16, 5] },
-            categories: { labels: ["Instr. Clarity", "Time Management", "Tech/HTML", "Env/WiFi"], data: [15, 10, 5, 3] },
-            citations: { labels: ["Correct Citation", "Missing Citation"], data: [65, 35] }
+            riskScores: { labels: ["High Concern (20-25)", "Medium (12-16)", "Low (4-9)"], data: [12, 16, 5] },
+            categories: { labels: ["Understanding Prompt", "Finding Time", "Technical/Coding", "WiFi/Internet"], data: [15, 10, 5, 3] },
+            citations: { labels: ["Has Citation", "Need Citation"], data: [65, 35] }
         };
 
         let behaviorChartInstance = null;
@@ -347,7 +401,7 @@
             behaviorData.forEach((b, index) => {
                 const btn = document.createElement('button');
                 btn.className = "behavior-btn text-left p-4 rounded-lg bg-white border border-stone-100 hover:bg-stone-50";
-                btn.innerHTML = `<span class="font-bold text-slate-800">${b.title}</span><span class="block text-xs text-slate-500 mt-1">Users: ${b.count}</span>`;
+                btn.innerHTML = `<span class="font-bold text-slate-800">${b.title}</span><span class="block text-xs text-slate-500 mt-1">Students: ${b.count}</span>`;
                 btn.onclick = () => selectBehavior(index);
                 btnContainer.appendChild(btn);
             });
