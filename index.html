@@ -1,33 +1,151 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CMPA 3301 DASHBOARD</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            color: #1e293b;
+            background-color: #f8fafc;
+        }
+        h1 {
+            color: #0f172a;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 12px;
+            text-align: center;
+        }
+        h2 {
+            margin-top: 40px;
+            color: #1e40af;
+            font-size: 1.5rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th {
+            background-color: #f1f5f9;
+            font-weight: 600;
+            color: #475569;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+        tr:hover {
+            background-color: #f8fafc;
+        }
+        .btn-link {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .btn-link:hover {
+            background-color: #1d4ed8;
+        }
+        .tag {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+            background: #e0f2fe;
+            color: #0369a1;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
-     <h1>Welcome CMPA 3301 LECTURE DASHBOARD</h1><br>
-    <p>MODULE 05 LECTURE <a href="lectureNotes/CMPA_3301_LSPR_2026_CompareFileTypes.html">MODULE 05 LECTURE COMPARE AND CONTRAST FILE TYPES AND THEIR PURPOSES</a>.</p>
-    
-<hr>
-    
- <h1>Welcome CMPA 3301 LATE SPRING 2026 DASHBOARD</h1><br>
-    <p>Discussion 01 Student Response Analysis <a href="CMPA_3301_LSPR_2026_DISC01_AnalysisDashboard.html">Discussion 01 Student Response Analysis</a>.</p>
-    <p>Discussion 02 Student Response Analysis <a href="CMPA_3301_LSPR_2026_DISC02_AnalysisDashboard.html">Discussion 02 Student Response Analysis</a>.</p>
-    <p>Discussion 03 Student Response Analysis <a href="CMPA_3301_LSPR_2026_DISC03_AnalysisDashboard.html">Discussion 03 Student Response Analysis</a>.</p>
-    <p>Discussion 03 Student Response Analysis Webpage <a href="CMPA_3301_LSPR_2026_DISC03_AnalysisWebPage.html">Discussion 03 Student Response Analysis Webpage</a>.</p>
-    <p>Discussion 04 Student Response Analysis Webpage <a href="CMPA_3301_LSPR_2026_DISC04_AnalysisWebPage.html">Discussion 04 Student Response Analysis Webpage</a>.</p>
-    <p>Project 01 Interactive Tutorial<a href="CMPA_3301_LSPR_2026_PROJ01_Tutorial.html">Project 01 Interactive Tutorial</a>.</p>
-<hr>
-    
-    <h1>Welcome CMPA 3301 EARLY SPRING 2026 DASHBOARD</h1>
+    <h1>CMPA 3301 Course Resource Hub</h1>
 
-    <p>Discussion 2 Student Response Analysis <a href="CMPA_3301_DISC2_AnalysisDashboard.html">Discussion 2 Student Response Analysis</a>.</p>
-    <p>Discussion 2 Student Response Analysis (GemLink) <a href="https://gemini.google.com/share/e9b8455eec3c">Discussion 2 Student Response Analysis</a>.</p>
-   <p>Discussion 3 Student Response Analysis <a href="CMPA_3301_DISC03_AnalysisDashboard.html">Discussion 3 Student Response Analysis</a>.</p>
-     <p>Discussion 4 Student Response Analysis <a href="CMPA_3301_DISC04_AnalysisDashboard.html">Discussion 4 Student Response Analysis</a>.</p>
-    <p>Discussion 5 Student Response Analysis <a href="CMPA_3301_DISC05_AnalysisDashboard.html">Discussion 5 Student Response Analysis</a>.</p>
-    <p>Discussion 6 Student Response Analysis <a href="CMPA_3301_DISC06_AnalysisDashboard.html">Discussion 6 Student Response Analysis</a>.</p>
-    
-    
+    <section>
+        <h2>Lecture Materials</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Module</th>
+                    <th>Topic</th>
+                    <th>Resource Type</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>05</td>
+                    <td>Compare & Contrast File Types</td>
+                    <td><span class="tag">Lecture Notes</span></td>
+                    <td><a href="lectureNotes/CMPA_3301_LSPR_2026_CompareFileTypes.html" class="btn-link">View Notes</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Late Spring 2026 Dashboards</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Activity</th>
+                    <th>Content Description</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Discussion 01</td>
+                    <td>Student Response Analysis Dashboard</td>
+                    <td><a href="CMPA_3301_LSPR_2026_DISC01_AnalysisDashboard.html" class="btn-link">Open</a></td>
+                </tr>
+                <tr>
+                    <td>Discussion 03</td>
+                    <td>Analysis Dashboard (Interactive)</td>
+                    <td><a href="CMPA_3301_LSPR_2026_DISC03_AnalysisDashboard.html" class="btn-link">Open</a></td>
+                </tr>
+                <tr>
+                    <td>Project 01</td>
+                    <td>Interactive Project Tutorial</td>
+                    <td><a href="CMPA_3301_LSPR_2026_PROJ01_Tutorial.html" class="btn-link">Start</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Early Spring 2026 Archive</h2>
+        <p style="font-size: 0.9rem; color: #64748b;">Historical data for reference purposes.</p>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Discussion 02</td>
+                    <td>Analysis Dashboard (Internal)</td>
+                    <td><a href="CMPA_3301_DISC2_AnalysisDashboard.html">Link</a></td>
+                </tr>
+                <tr>
+                    <td>Discussion 02</td>
+                    <td>External GemLink Analysis</td>
+                    <td><a href="https://gemini.google.com/share/e9b8455eec3c">External</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
 </body>
 </html>
