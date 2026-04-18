@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion 04 Analysis & Insights</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Palette: Calm Harmony (Stone-50 background, Slate-800 text, Teal-600 and Amber-500 accents) -->
+    
+    <style>
+        body {
+            background-color: #fafaf9;
+            color: #1e293b;
+        }
+        
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+
+        .nav-button {
+            transition: all 0.2s ease-in-out;
+        }
+        .nav-button.active {
+            background-color: #0f766e;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .exemplar-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .exemplar-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .behavior-btn {
+            transition: all 0.2s ease;
+        }
+        .behavior-btn.selected {
+            border-left-width: 4px;
+            border-color: #f59e0b;
+            background-color: #f8fafc;
+        }
+
+        .instructor-message {
+            border-left: 4px solid #0f766e;
+            background-color: #f0fdfa;
+        }
+    </style>
+</head>
+<body class="flex flex-col md:flex-row min-h-screen font-sans">
+
+    <nav class="w-full md:w-64 bg-white border-r border-stone-200 flex-shrink-0 shadow-sm z-10 md:min-h-screen">
+        <div class="p-6 border-b border-stone-100">
+            <h1 class="text-2xl font-black text-slate-800 tracking-tight">CMPA 3301</h1>
+            <p class="text-xs font-bold text-teal-600 uppercase tracking-widest mt-1">Discussion 04 Analysis</p>
+        </div>
+        <div class="flex md:flex-col p-4 gap-2 overflow-x-auto md:overflow-visible">
+            <button onclick="navigate('insights')" id="nav-insights" class="nav-button active whitespace-nowrap text-left px-4 py-3 rounded-lg text-sm text-slate-600 hover:bg-stone-100 flex-1 md:flex-none">&#12776F; Executive Insights</button>
+            <button onclick="navigate('themes')" id="nav-themes" class="nav-button whitespace-nowrap text-left px-4 py-3 rounded-lg text-sm text-slate-600 hover:bg-stone-100 flex-1 md:flex-none">&#128737; Risk Themes</button>
+            <button onclick="navigate('metrics')" id="nav-metrics" class="nav-button whitespace-nowrap text-left px-4 py-3 rounded-lg text-sm text-slate-600 hover:bg-stone-100 flex-1 md:flex-none">&#128202; Cohort Metrics</button>
+        </div>
+    </nav>
+
+    <main class="flex-1 p-6 md:p-10 overflow-y-auto w-full">
+        
+        <section id="view-insights" class="block animate-fade-in">
+            <div class="max-w-5xl mx-auto">
+                <header class="mb-8">
+                    <h2 class="text-3xl font-extrabold text-slate-800 mb-4">Executive Insights & Exemplars</h2>
+                    <div class="instructor-message p-6 rounded-r-lg shadow-sm mb-6">
+                        <h3 class="text-sm font-bold text-teal-700 uppercase tracking-widest mb-2 italic">A Note from Instructor Whalen</h3>
+                        <p class="text-slate-700 leading-relaxed">
+                            Thank you all for the incredibly thoughtful discussion posts regarding the Project 01 instructions. Reading your reflections on where the prompt was clear and where it felt open to interpretation has been extremely valuable. My plan is to use this collective feedback to refine the instructional materials and improve the understanding of the first project for future terms.
+                        </p>
+                    </div>
+                    <p class="text-lg text-slate-600 leading-relaxed border-l-4 border-amber-500 pl-4 bg-white p-4 rounded-r-lg shadow-sm">
+                        This week, the cohort focused on the <strong>Impact x Probability</strong> formula to analyze Project 01 hurdles. By identifying these "Project 01 Risks," we are shifting from reactive troubleshooting to proactive planning—a core competency for successful project managers.
+                    </p>
+                </header>
+
+                <div class="mt-8">
+                    <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center">&#11088; Risk Strategy Standouts</h3>
+                    <p class="text-sm text-slate-500 mb-6">These students provided exemplary models for quantifying risk and applying the TAME framework to technical tasks.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="exemplar-card bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                            <div class="text-amber-500 text-2xl mb-2">&#128197;</div>
+                            <h4 class="font-black text-lg text-slate-800">Adrian</h4>
+                            <p class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-3">Time Management</p>
+                            <p class="text-sm text-slate-600">Provided a detailed 5-day mitigation schedule, demonstrating that a plan is only as good as the time allocated to execute it.</p>
+                        </div>
+
+                        <div class="exemplar-card bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                            <div class="text-amber-500 text-2xl mb-2">&#9875;</div>
+                            <h4 class="font-black text-lg text-slate-800">Amy</h4>
+                            <p class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-3">Scope Alignment</p>
+                            <p class="text-sm text-slate-600">Correctly identified the <strong>Scope Statement</strong> as the "anchor" that prevents technical drift in the HTML development phase.</p>
+                        </div>
+
+                        <div class="exemplar-card bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                            <div class="text-amber-500 text-2xl mb-2">&#128269;</div>
+                            <h4 class="font-black text-lg text-slate-800">Joseph</h4>
+                            <p class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-3">Technical Syntax</p>
+                            <p class="text-sm text-slate-600">Used professional **linters** and real-time testing to <strong>Eliminate</strong> the risk of broken code before the final submission.</p>
+                        </div>
+
+                        <div class="exemplar-card bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                            <div class="text-amber-500 text-2xl mb-2">&#128246;</div>
+                            <h4 class="font-black text-lg text-slate-800">Hugo</h4>
+                            <p class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-3">Environmental Risk</p>
+                            <p class="text-sm text-slate-600">Identified a mobile hotspot as a <strong>Transfer/Mitigate</strong> tool, showing how backup infrastructure lowers the probability of a missed deadline.</p>
+                        </div>
+
+                        <div class="exemplar-card bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                            <div class="text-amber-500 text-2xl mb-2">&#128208;</div>
+                            <h4 class="font-black text-lg text-slate-800">Susan</h4>
+                            <p class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-3">Alignment Analysis</p>
+                            <p class="text-sm text-slate-600">Perfectly quantified the high-risk score (20) of instructions misalignment, highlighting why checklists are vital in complex projects.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-themes" class="hidden animate-fade-in">
+            <div class="max-w-6xl mx-auto">
+                <header class="mb-8">
+                    <h2 class="text-3xl font-extrabold text-slate-800 mb-4">Risk Themes & TAME Application</h2>
+                    <p class="text-lg text-slate-600 leading-relaxed border-l-4 border-teal-600 pl-4 bg-white p-4 rounded-r-lg shadow-sm">
+                        This section analyzes how the cohort chose to handle the identified risks using the <strong>TAME</strong> framework. While "Mitigation" remains the standard approach, we saw several students move toward "Elimination" through technical automation and "Acceptance" for unavoidable real-life schedule conflicts.
+                    </p>
+                </header>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 mb-8">
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">TAME Strategy Frequency</h3>
+                    <p class="text-sm text-slate-500 mb-4">Distribution of strategies chosen to handle Project 01 risks. Click a bar to view qualitative insights.</p>
+                    <div class="chart-container">
+                        <canvas id="behaviorBarChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="w-full md:w-1/3 flex flex-col gap-2" id="behavior-btn-container">
+                    </div>
+                    
+                    <div class="w-full md:w-2/3 bg-white p-8 rounded-xl shadow-sm border border-stone-200 min-h-[300px]">
+                        <h4 class="text-sm font-bold text-amber-500 uppercase tracking-widest mb-2" id="detail-subtitle">Select a strategy</h4>
+                        <h3 class="text-2xl font-black text-slate-800 mb-4" id="detail-title">Framework Synthesis</h3>
+                        <p class="text-slate-600 text-lg leading-relaxed" id="detail-content">Select a strategy from the menu to see how the cohort applied it to Project 01.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-metrics" class="hidden animate-fade-in">
+            <div class="max-w-5xl mx-auto">
+                <header class="mb-8">
+                    <h2 class="text-3xl font-extrabold text-slate-800 mb-4">Cohort Discussion Metrics</h2>
+                    <p class="text-lg text-slate-600 leading-relaxed border-l-4 border-teal-600 pl-4 bg-white p-4 rounded-r-lg shadow-sm">
+                        Qualitative success is paired here with quantitative tracking. We are monitoring the average risk perceptions of the class and identifying common areas for technical improvement, such as the consistent use of APA style citations.
+                    </p>
+                </header>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-800 mb-1">Actual Risk Perception</h3>
+                        <p class="text-xs text-slate-500 mb-4">Avg score: 15.4 / 25. Distribution of Risk Formula results.</p>
+                        <div class="chart-container flex-grow">
+                            <canvas id="gradeChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-800 mb-1">Top Risk Categories</h3>
+                        <p class="text-xs text-slate-500 mb-4">Thematic focus of the initial posts.</p>
+                        <div class="chart-container flex-grow">
+                            <canvas id="timeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 w-full md:w-1/2 mx-auto">
+                    <h3 class="text-lg font-bold text-slate-800 mb-1 text-center">APA Citation Adherence</h3>
+                    <p class="text-xs text-slate-500 mb-4 text-center">Tracking "Good-Faith" attempts at APA citations.</p>
+                    <div class="chart-container h-64">
+                        <canvas id="formatChart"></canvas>
+                    </div>
+                    <div class="mt-4 p-3 bg-amber-50 rounded text-amber-800 text-sm font-medium border border-amber-200 text-center">
+                        Note: 35% of students missed the required textbook citation for the risk formula. This is a rubric requirement for all discussion posts.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        const appState = {
+            currentView: 'insights',
+            activeBehaviorIndex: 0
+        };
+
+        const behaviorData = [
+            {
+                title: "Mitigate",
+                count: 26,
+                subtitle: "Lowering Impact & Probability",
+                content: "Mitigation was the strategy of choice for 82% of the cohort. Students like Mark and Susan utilized checklists, VS Code previews, and repeated instruction reviews to reduce the 'Probability' of a misunderstanding before it affected the final 'Impact' on their grade."
+            },
+            {
+                title: "Eliminate",
+                count: 4,
+                subtitle: "Removing the Risk Entirely",
+                content: "We saw advanced strategies here: Joseph and Jalen used technical tools (linters/tutorials) and early clarification to ensure the risk of 'broken code' was removed before submission. This is the gold standard for high-stakes technical projects."
+            },
+            {
+                title: "Accept",
+                count: 3,
+                subtitle: "Acknowledging Real-Life Friction",
+                content: "Timothy and Eric used Acceptance effectively for risks they couldn't control—like the 'waves' of project discovery or unavoidable schedule conflicts with their small businesses or professional travel. Acknowledging these risks allowed them to stay flexible."
+            },
+            {
+                title: "Transfer",
+                count: 2,
+                subtitle: "Shifting the Load",
+                content: "Hugo and Cassandra provided unique examples of shifting the risk to backup systems (Hotspots) or collaborative resources (Peer mentors) to ensure the project timeline remained on track despite environmental hurdles."
+            }
+        ];
+
+        const metricData = {
+            riskScores: { labels: ["High (20-25)", "Medium (12-16)", "Low (4-9)"], data: [12, 16, 5] },
+            categories: { labels: ["Instr. Clarity", "Time Management", "Tech/HTML", "Env/WiFi"], data: [15, 10, 5, 3] },
+            citations: { labels: ["Correct Citation", "Missing Citation"], data: [65, 35] }
+        };
+
+        let behaviorChartInstance = null;
+
+        function navigate(viewId) {
+            appState.currentView = viewId;
+            
+            document.getElementById('nav-insights').classList.remove('active');
+            document.getElementById('nav-themes').classList.remove('active');
+            document.getElementById('nav-metrics').classList.remove('active');
+            document.getElementById('nav-' + viewId).classList.add('active');
+
+            document.getElementById('view-insights').classList.add('hidden');
+            document.getElementById('view-themes').classList.add('hidden');
+            document.getElementById('view-metrics').classList.add('hidden');
+            
+            document.getElementById('view-' + viewId).classList.remove('hidden');
+            document.getElementById('view-' + viewId).classList.add('block');
+        }
+
+        function wrapText(text, maxLen) {
+            const words = text.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (let i = 0; i < words.length; i++) {
+                if ((currentLine + words[i]).length > maxLen) {
+                    if(currentLine.trim() !== "") lines.push(currentLine.trim());
+                    currentLine = words[i] + ' ';
+                } else {
+                    currentLine += words[i] + ' ';
+                }
+            }
+            if(currentLine.trim() !== "") lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const standardTooltip = {
+            callbacks: {
+                title: function(context) {
+                    let label = context[0].chart.data.labels[context[0].dataIndex];
+                    return Array.isArray(label) ? label.join(' ') : label;
+                }
+            }
+        };
+
+        function selectBehavior(index) {
+            appState.activeBehaviorIndex = index;
+            
+            const container = document.getElementById('behavior-btn-container');
+            Array.from(container.children).forEach((btn, i) => {
+                if(i === index) {
+                    btn.classList.add('selected');
+                } else {
+                    btn.classList.remove('selected');
+                }
+            });
+
+            const data = behaviorData[index];
+            document.getElementById('detail-subtitle').innerText = data.subtitle;
+            document.getElementById('detail-title').innerText = data.title;
+            document.getElementById('detail-content').innerText = data.content;
+            
+            if (behaviorChartInstance) {
+                const bgColors = behaviorData.map((_, i) => i === index ? '#f59e0b' : '#0f766e');
+                behaviorChartInstance.data.datasets[0].backgroundColor = bgColors;
+                behaviorChartInstance.update();
+            }
+        }
+
+        function initApp() {
+            const btnContainer = document.getElementById('behavior-btn-container');
+            behaviorData.forEach((b, index) => {
+                const btn = document.createElement('button');
+                btn.className = "behavior-btn text-left p-4 rounded-lg bg-white border border-stone-100 hover:bg-stone-50";
+                btn.innerHTML = `<span class="font-bold text-slate-800">${b.title}</span><span class="block text-xs text-slate-500 mt-1">Users: ${b.count}</span>`;
+                btn.onclick = () => selectBehavior(index);
+                btnContainer.appendChild(btn);
+            });
+
+            Chart.defaults.font.family = "ui-sans-serif, system-ui, sans-serif";
+            Chart.defaults.color = "#64748b";
+
+            const bLabels = behaviorData.map(b => wrapText(b.title, 16));
+            const bCounts = behaviorData.map(b => b.count);
+            
+            const ctxBehavior = document.getElementById('behaviorBarChart').getContext('2d');
+            behaviorChartInstance = new Chart(ctxBehavior, {
+                type: 'bar',
+                data: {
+                    labels: bLabels,
+                    datasets: [{
+                        label: 'Strategy Selection',
+                        data: bCounts,
+                        backgroundColor: '#0f766e',
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    onClick: (e, activeEls) => {
+                        if (activeEls.length > 0) {
+                            selectBehavior(activeEls[0].index);
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: standardTooltip
+                    },
+                    scales: {
+                        y: { beginAtZero: true, ticks: { precision: 0 }, grid: { color: '#f5f5f4' } },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+
+            const ctxGrade = document.getElementById('gradeChart').getContext('2d');
+            new Chart(ctxGrade, {
+                type: 'bar',
+                data: {
+                    labels: metricData.riskScores.labels.map(l => wrapText(l, 16)),
+                    datasets: [{
+                        label: 'Students',
+                        data: metricData.riskScores.data,
+                        backgroundColor: '#0f766e',
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    plugins: { legend: { display: false }, tooltip: standardTooltip },
+                    scales: {
+                        y: { beginAtZero: true, ticks: { precision: 0 }, grid: { color: '#f5f5f4' } },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+
+            const ctxTime = document.getElementById('timeChart').getContext('2d');
+            new Chart(ctxTime, {
+                type: 'doughnut',
+                data: {
+                    labels: metricData.categories.labels,
+                    datasets: [{
+                        data: metricData.categories.data,
+                        backgroundColor: ['#0f766e', '#0d9488', '#14b8a6', '#f59e0b'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    cutout: '75%',
+                    plugins: { 
+                        legend: { position: 'bottom', labels: { boxWidth: 12, usePointStyle: true } },
+                        tooltip: standardTooltip
+                    }
+                }
+            });
+
+            const ctxFormat = document.getElementById('formatChart').getContext('2d');
+            new Chart(ctxFormat, {
+                type: 'pie',
+                data: {
+                    labels: metricData.citations.labels,
+                    datasets: [{
+                        data: metricData.citations.data,
+                        backgroundColor: ['#0f766e', '#f43f5e'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    plugins: { 
+                        legend: { position: 'bottom', labels: { boxWidth: 12, usePointStyle: true } },
+                        tooltip: standardTooltip
+                    }
+                }
+            });
+
+            selectBehavior(0);
+        }
+
+        window.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>
