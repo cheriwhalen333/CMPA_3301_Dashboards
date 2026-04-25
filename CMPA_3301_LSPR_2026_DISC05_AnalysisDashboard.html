@@ -1,0 +1,196 @@
+import React from 'react';
+import { 
+  Users, 
+  GitBranch, 
+  ClipboardCheck, 
+  AlertTriangle, 
+  CheckCircle2, 
+  History, 
+  ShieldAlert,
+  Quote
+} from 'lucide-react';
+
+const App = () => {
+  return (
+    <div className="min-h-screen bg-slate-50 p-4 md:p-8 font-sans text-slate-800">
+      <div className="max-w-5xl mx-auto space-y-8">
+        
+        {/* Header Section */}
+        <header className="bg-gradient-to-r from-blue-700 to-indigo-800 rounded-3xl p-8 text-white shadow-xl">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="text-center md:text-left">
+              <h2 className="text-sm font-bold uppercase tracking-widest text-blue-200 mb-2">CMPA 3301 | Module 05</h2>
+              <h1 className="text-3xl md:text-5xl font-extrabold mb-4">Discussion 05 Recap</h1>
+              <p className="text-blue-100 text-lg max-w-2xl font-light italic">
+                "Reflecting on Digital Projects: The Power of Version Control & Accountability"
+              </p>
+            </div>
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center">
+              <span className="block text-3xl font-black text-white">100%</span>
+              <span className="text-xs uppercase font-bold text-blue-200">Participation Rate</span>
+            </div>
+          </div>
+        </header>
+
+        {/* Grading Scale Row */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-100">
+            <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+              <ClipboardCheck className="text-blue-600" />
+              Initial Post Scale (10 Max)
+            </h3>
+            <div className="space-y-4">
+              <div className="flex items-center justify-between p-3 bg-green-50 rounded-xl">
+                <span className="font-bold text-green-700">10: Very Good</span>
+                <span className="text-xs text-green-600 italic">Depth & Specificity</span>
+              </div>
+              <div className="flex items-center justify-between p-3 bg-blue-50 rounded-xl">
+                <span className="font-bold text-blue-700">9: Above & Beyond</span>
+                <span className="text-xs text-blue-600 italic">Exceeds Basics</span>
+              </div>
+              <div className="flex items-center justify-between p-3 bg-slate-50 rounded-xl">
+                <span className="font-bold text-slate-700">8: Adequate</span>
+                <span className="text-xs text-slate-600 italic">Met Requirements</span>
+              </div>
+              <div className="flex items-center justify-between p-3 bg-red-50 rounded-xl">
+                <span className="font-bold text-red-700">7-0: Below Requirements</span>
+                <span className="text-xs text-red-600 italic">Short/Missing Citations</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-100">
+            <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+              <Users className="text-indigo-600" />
+              Peer Response Scale (5 Per)
+            </h3>
+            <div className="space-y-4">
+              <div className="flex items-center justify-between p-3 bg-indigo-50 rounded-xl border border-indigo-100">
+                <span className="font-bold text-indigo-700">5: Substantive+</span>
+                <span className="text-xs text-indigo-600 italic">3+ Replies or Extra Depth</span>
+              </div>
+              <div className="flex items-center justify-between p-3 bg-slate-50 rounded-xl">
+                <span className="font-bold text-slate-700">4: Adequate</span>
+                <span className="text-xs text-slate-600 italic">Met Basic Criteria</span>
+              </div>
+              <div className="flex items-center justify-between p-3 bg-red-50 rounded-xl border border-red-100">
+                <span className="font-bold text-red-700">0: Missing/Late</span>
+                <span className="text-xs text-red-600 italic">Not Recorded</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Themes Section */}
+        <section className="bg-white rounded-3xl p-8 shadow-sm border border-slate-100">
+          <h3 className="text-2xl font-bold mb-8 text-center">Common Digital Project "Minefields"</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="space-y-4 group">
+              <div className="bg-amber-100 p-4 rounded-2xl w-fit group-hover:scale-110 transition-transform">
+                <ShieldAlert className="text-amber-600 h-8 w-8" />
+              </div>
+              <h4 className="font-bold text-lg">The Shared Folder Trap</h4>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Relying on "Shared Drives" without change tracking creates chaos. When everyone has access but no one has a "history," vital information vanishes silently.
+              </p>
+            </div>
+            <div className="space-y-4 group">
+              <div className="bg-red-100 p-4 rounded-2xl w-fit group-hover:scale-110 transition-transform">
+                <History className="text-red-600 h-8 w-8" />
+              </div>
+              <h4 className="font-bold text-lg">Collaboration Overwrites</h4>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Editing a "Master" file directly instead of creating local branches or working versions leads to the "Final_v2_Final" naming madness and overwritten work.
+              </p>
+            </div>
+            <div className="space-y-4 group">
+              <div className="bg-blue-100 p-4 rounded-2xl w-fit group-hover:scale-110 transition-transform">
+                <AlertTriangle className="text-blue-600 h-8 w-8" />
+              </div>
+              <h4 className="font-bold text-lg">The "Haste" Factor</h4>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Rushing to combine separate files at the deadline leads to accidental deletions. Version control protects your work from these high-stress moments.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Exemplary Quotes Section */}
+        <section className="bg-indigo-50 rounded-3xl p-8 border border-indigo-100">
+          <h3 className="text-2xl font-bold mb-8 flex items-center gap-2">
+            <Quote className="text-indigo-600" />
+            Voices from the Classroom
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-indigo-50 relative">
+              <p className="text-slate-700 italic mb-4">"Our Teams folder was essentially a ‘dump and hope’ system with no feedback loop."</p>
+              <span className="text-indigo-700 font-bold text-sm">— Timothy</span>
+            </div>
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-indigo-50 relative">
+              <p className="text-slate-700 italic mb-4">"They had 47 files named 'final'... there was no visual on who made what change and when."</p>
+              <span className="text-indigo-700 font-bold text-sm">— Dominique</span>
+            </div>
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-indigo-50 relative">
+              <p className="text-slate-700 italic mb-4">"Accountability isn’t about blame, it’s about clarity. GitHub supports that by making work visible."</p>
+              <span className="text-indigo-700 font-bold text-sm">— Briseyda</span>
+            </div>
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-indigo-50 relative">
+              <p className="text-slate-700 italic mb-4">"We both put our heads down and just slapped lines of code into the project with no idea what the other's code looked like."</p>
+              <span className="text-indigo-700 font-bold text-sm">— Landon</span>
+            </div>
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-indigo-50 relative md:col-span-2">
+              <p className="text-slate-700 italic mb-4">"Files were saved under different names... key edits were overwritten or lost. GitHub could have helped by providing a centralized location."</p>
+              <span className="text-indigo-700 font-bold text-sm">— Susan</span>
+            </div>
+          </div>
+        </section>
+
+        {/* Principles Section */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-indigo-900 rounded-3xl p-8 text-white">
+            <h3 className="text-xl font-bold mb-6 flex items-center gap-2 text-indigo-200 uppercase tracking-wide">
+              <CheckCircle2 className="h-5 w-5" />
+              The "Source of Truth"
+            </h3>
+            <p className="text-sm text-indigo-100 leading-relaxed mb-6">
+              Our class consensus: Platforms like <strong>GitHub</strong> aren't just for code. They are a "Source of Truth" that prevents the disconnection found in emailed attachments.
+            </p>
+            <div className="p-4 bg-white/5 rounded-2xl border border-white/10 italic text-sm">
+              "Accountability is about clarity, not blame. Transparency builds trust."
+            </div>
+          </div>
+
+          <div className="bg-slate-800 rounded-3xl p-8 text-white">
+            <h3 className="text-xl font-bold mb-6 flex items-center gap-2 text-slate-400 uppercase tracking-wide">
+              <GitBranch className="h-5 w-5" />
+              Cadence of Accountability
+            </h3>
+            <p className="text-sm text-slate-300 leading-relaxed mb-4">
+              Principles from <strong>PMUPM Chapter 5</strong>:
+            </p>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-start gap-2">
+                <span className="text-emerald-400 font-bold">•</span>
+                <span>Regular check-ins (The "Rhythm") prevent end-of-project surprises.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-emerald-400 font-bold">•</span>
+                <span>The "Checklist Mentality" keeps everyone on the critical path.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-emerald-400 font-bold">•</span>
+                <span>Public history drives genuine buy-in.</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <footer className="text-center py-8 text-slate-400 text-xs uppercase tracking-widest">
+          CMPA 3301 | Instructor Cheri Whalen, M.S. | © 2026
+        </footer>
+      </div>
+    </div>
+  );
+};
+
+export default App;
