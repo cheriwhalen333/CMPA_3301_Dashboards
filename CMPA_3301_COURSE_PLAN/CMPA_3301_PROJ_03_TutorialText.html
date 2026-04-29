@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial: Building Your Project 03 Website Prototype</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #24292e;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        h1 {
+            font-size: 2em;
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: .3em;
+        }
+        h2 {
+            font-size: 1.5em;
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: .3em;
+            margin-top: 24px;
+        }
+        hr {
+            height: .25em;
+            padding: 0;
+            margin: 24px 0;
+            background-color: #e1e4e8;
+            border: 0;
+        }
+        ul, ol {
+            padding-left: 2em;
+        }
+        code {
+            padding: .2em .4em;
+            margin: 0;
+            font-size: 85%;
+            background-color: rgba(27,31,35,.05);
+            border-radius: 3px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        }
+        pre {
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: #f6f8fa;
+            border-radius: 3px;
+        }
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+        .container {
+            border: 1px solid #d1d5da;
+            padding: 30px;
+            border-radius: 6px;
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 0.8em;
+            color: #6a737d;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Tutorial: Building Your Project 03 Website Prototype</h1>
+        <p>This tutorial walks you through the end-to-end process of building your final project. By following these steps, you will meet all technical and professional requirements for the final grade.</p>
+        
+        <hr>
+
+        <h2>Phase 1: Repository Setup</h2>
+        <ol>
+            <li><strong>Create the Repository:</strong> In GitHub (or via GitHub Desktop), create a new public repository.
+                <ul>
+                    <li><strong>Name:</strong> Follow your continuity roadmap name (e.g., <code>username-project-03</code> or <code>username.github.io</code>).</li>
+                    <li><strong>Initialize:</strong> Add a <code>README.md</code> and a <code>.gitignore</code> (choose the 'Yeoman' or 'Web' template if available, or leave it blank).</li>
+                </ul>
+            </li>
+            <li><strong>Clone to Local:</strong> Open the repository in <strong>GitHub Desktop</strong> and clone it to your local machine.</li>
+            <li><strong>Open in VS Code:</strong> Navigate to the folder and open it in VS Code.</li>
+        </ol>
+
+        <hr>
+
+        <h2>Phase 2: Folder Structure & Documentation</h2>
+        <p>Project 03 requires a specific organizational structure.</p>
+        <ol>
+            <li><strong>Create the <code>docs/</code> Folder:</strong> In your root directory, create a folder named <code>docs</code>.</li>
+            <li><strong>Move/Create Markdown Files:</strong>
+                <ul>
+                    <li>Place your <code>scope.md</code> (from Assignment 03) inside the <code>docs/</code> folder.</li>
+                    <li>Create a <code>plan.md</code> file (including your TAME risk analysis and task list).</li>
+                    <li>Create a <code>retrospective.md</code> file (you will fill this out <em>after</em> the build).</li>
+                </ul>
+            </li>
+            <li><strong>Draft the README:</strong> In the root <code>README.md</code>, provide a project title, a brief description, and a placeholder for your live URL.</li>
+        </ol>
+
+        <hr>
+
+        <h2>Phase 3: Building the Website (HTML)</h2>
+        <ol>
+            <li><strong>Create the HTML Files:</strong> In the <strong>root directory</strong>, create <code>index.html</code> and <code>about.html</code>.</li>
+            <li><strong>Semantic Structure:</strong> Every page must include:
+                <ul>
+                    <li><code>&lt;!DOCTYPE html&gt;</code> and <code>&lt;html&gt;</code> tags.</li>
+                    <li>A <code>&lt;head&gt;</code> section with a <code>&lt;title&gt;</code> and a link to your CSS.</li>
+                    <li>A <code>&lt;body&gt;</code> utilizing semantic tags: <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, and <code>&lt;footer&gt;</code>.</li>
+                </ul>
+            </li>
+            <li><strong>Navigation:</strong> Ensure both pages have a <code>&lt;nav&gt;</code> menu that links to each other correctly.
+                <ul>
+                    <li>Example: <code>&lt;a href="index.html"&gt;Home&lt;/a&gt;</code> and <code>&lt;a href="about.html"&gt;About&lt;/a&gt;</code>.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <hr>
+
+        <h2>Phase 4: Styling (CSS)</h2>
+        <ol>
+            <li><strong>Create the CSS File:</strong> In the <strong>root directory</strong>, create <code>style.css</code>.</li>
+            <li><strong>Link the CSS:</strong> Add the following line to the <code>&lt;head&gt;</code> of <strong>both</strong> HTML pages:
+                <br><code>&lt;link rel="stylesheet" href="style.css"&gt;</code>
+            </li>
+            <li><strong>Apply Styles:</strong> Use the "Cozy" or "Professional" palettes defined in your scope. Focus on:
+                <ul>
+                    <li>Box model properties (<code>padding</code>, <code>margin</code>).</li>
+                    <li>Typography (web-safe fonts).</li>
+                    <li>Layout (using Flexbox or basic centering).</li>
+                </ul>
+            </li>
+        </ol>
+
+        <hr>
+
+        <h2>Phase 5: Version Control (The Narrative)</h2>
+        <p>Your commit history is worth <strong>30% of your grade</strong>. Do not upload all files at once.</p>
+        <ol>
+            <li><strong>Commit 1:</strong> "Initial repo setup with README and documentation folder."</li>
+            <li><strong>Commit 2:</strong> "Added index and about pages with semantic HTML structure."</li>
+            <li><strong>Commit 3:</strong> "Applied custom CSS styling and finalized navigation links."</li>
+            <li><strong>Push:</strong> Click "Push to Origin" in GitHub Desktop after every commit.</li>
+        </ol>
+
+        <hr>
+
+        <h2>Phase 6: Deployment (The Launch)</h2>
+        <ol>
+            <li><strong>Enable GitHub Pages:</strong>
+                <ul>
+                    <li>Go to your repo on GitHub.com.</li>
+                    <li>Click <strong>Settings</strong> -> <strong>Pages</strong>.</li>
+                    <li>Under "Branch," select <strong>main</strong> and <strong>/ (root)</strong>. Click <strong>Save</strong>.</li>
+                </ul>
+            </li>
+            <li><strong>Verify:</strong> Wait 1–2 minutes, then refresh until you see "Your site is live at..."</li>
+            <li><strong>Add the Link:</strong> Copy the live URL and paste it into the "About" section of your GitHub repo and into your <code>README.md</code>.</li>
+        </ol>
+
+        <hr>
+
+        <h2>Phase 7: Final Check</h2>
+        <ul>
+            <li>[ ] Does the site match my <strong>Assignment 03 Scope Statement</strong>?</li>
+            <li>[ ] Are all files (<code>index</code>, <code>about</code>, <code>style</code>) in the root directory?</li>
+            <li>[ ] Is the documentation (<code>scope</code>, <code>plan</code>, <code>retrospective</code>) in the <code>docs/</code> folder?</li>
+            <li>[ ] Are there at least 3 distinct commits in the history?</li>
+        </ul>
+        <p><strong>Final Step:</strong> Submit the URL of your GitHub Repository to the Project 03 portal on Canvas.</p>
+
+        <hr>
+
+        
+    </div>
+
+    <footer>
+        CMPA 3301 | Instructor Cheri Whalen, M.S. | © 2026
+    </footer>
+
+</body>
+</html>
