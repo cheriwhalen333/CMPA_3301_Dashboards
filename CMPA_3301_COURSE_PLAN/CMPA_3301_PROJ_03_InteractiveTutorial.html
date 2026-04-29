@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 03 Tutorial | Step-by-Step Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .code-font { font-family: 'Fira Code', monospace; }
+        .checkbox-container input:checked ~ .checkmark {
+            background-color: #059669;
+            border-color: #059669;
+        }
+        .checkbox-container input:checked ~ .label-text {
+            color: #059669;
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+        .dir-line {
+            border-left: 2px solid #e2e8f0;
+            margin-left: 0.75rem;
+            padding-left: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-blue-100">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-6 py-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="px-3 py-1 bg-blue-600 text-white text-xs font-black rounded-full uppercase tracking-widest">Module 08</span>
+                <span class="text-slate-400 font-medium">/</span>
+                <span class="text-slate-500 text-sm font-semibold uppercase tracking-tight">Final Build Guide</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-black tracking-tight text-slate-900 mb-2">Building Your Project 03 Prototype</h1>
+            <p class="text-lg text-slate-600 font-light">Follow this simple checklist to ensure your repository meets all minimum expectations.</p>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-12 space-y-12">
+
+        <!-- Visual Directory Structure -->
+        <section class="bg-slate-900 rounded-3xl p-8 text-white shadow-xl overflow-hidden relative">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl"></div>
+            <h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>
+                Required Repository Directory Structure
+            </h2>
+            
+            <div class="code-font text-sm md:text-base space-y-2 bg-slate-800/50 p-6 rounded-2xl border border-white/5">
+                <div class="flex items-center gap-2 text-blue-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" /></svg>
+                    username.github.io <span class="text-slate-500 text-xs">(Root Folder)</span>
+                </div>
+                <div class="dir-line">
+                    <div class="flex items-center gap-2 text-amber-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" /></svg>
+                        docs/ <span class="text-slate-500 text-xs">(Project Management Folder)</span>
+                    </div>
+                    <div class="dir-line space-y-1">
+                        <div class="flex items-center gap-2"><span class="text-slate-500">|_</span> scope.md</div>
+                        <div class="flex items-center gap-2"><span class="text-slate-500">|_</span> plan.md</div>
+                        <div class="flex items-center gap-2"><span class="text-slate-500">|_</span> retrospective.md</div>
+                    </div>
+                    <div class="mt-2 space-y-1">
+                        <div class="flex items-center gap-2"><span class="text-slate-500">|_</span> about.html</div>
+                        <div class="flex items-center gap-2"><span class="text-slate-500">|_</span> index.html</div>
+                        <div class="flex items-center gap-2"><span class="text-slate-500">|_</span> README.md</div>
+                        <div class="flex items-center gap-2"><span class="text-slate-500">|_</span> style.css</div>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-4 text-xs text-slate-400 italic">Note: The docs/ folder must contain the Markdown files, while the HTML and CSS stay in the root.</p>
+        </section>
+
+        <!-- Step-by-Step Checklist -->
+        <div class="space-y-6">
+            
+            <!-- Phase 1 -->
+            <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
+                <h3 class="text-lg font-black uppercase tracking-widest text-blue-600 mb-6 flex items-center gap-2">
+                    Phase 1: Setup & Documentation
+                </h3>
+                <div class="space-y-4">
+                    <label class="checkbox-container flex items-start gap-4 cursor-pointer group">
+                        <div class="relative flex-shrink-0 mt-1">
+                            <input type="checkbox" class="sr-only peer">
+                            <div class="checkmark h-6 w-6 border-2 border-slate-300 rounded-md transition-all group-hover:border-blue-400"></div>
+                        </div>
+                        <div class="label-text">
+                            <p class="font-bold">Open your local repository folder in VS Code.</p>
+                            <p class="text-sm text-slate-500">This is the <code>username.github.io</code> folder you used for Project 02.</p>
+                        </div>
+                    </label>
+
+                    <label class="checkbox-container flex items-start gap-4 cursor-pointer group">
+                        <div class="relative flex-shrink-0 mt-1">
+                            <input type="checkbox" class="sr-only peer">
+                            <div class="checkmark h-6 w-6 border-2 border-slate-300 rounded-md transition-all group-hover:border-blue-400"></div>
+                        </div>
+                        <div class="label-text">
+                            <p class="font-bold">Create a new folder named "docs".</p>
+                            <p class="text-sm text-slate-500">Inside your project folder, create this directory for your planning files.</p>
+                        </div>
+                    </label>
+
+                    <label class="checkbox-container flex items-start gap-4 cursor-pointer group">
+                        <div class="relative flex-shrink-0 mt-1">
+                            <input type="checkbox" class="sr-only peer">
+                            <div class="checkmark h-6 w-6 border-2 border-slate-300 rounded-md transition-all group-hover:border-blue-400"></div>
+                        </div>
+                        <div class="label-text">
+                            <p class="font-bold">Add your 3 Planning Files into the docs folder.</p>
+                            <p class="text-sm text-slate-500">Place <code>scope.md</code>, <code>plan.md</code>, and <code>retrospective.md</code> inside <code>docs/</code>.</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
+                <h3 class="text-lg font-black uppercase tracking-widest text-blue-600 mb-6 flex items-center gap-2">
+                    Phase 2: Building the Site
+                </h3>
+                <div class="space-y-4">
+                    <label class="checkbox-container flex items-start gap-4 cursor-pointer group">
+                        <div class="relative flex-shrink-0 mt-1">
+                            <input type="checkbox" class="sr-only peer">
+                            <div class="checkmark h-6 w-6 border-2 border-slate-300 rounded-md transition-all group-hover:border-blue-400"></div>
+                        </div>
+                        <div class="label-text">
+                            <p class="font-bold">Create index.html and about.html in the root folder.</p>
+                            <p class="text-sm text-slate-500">Ensure these are outside the docs folder so GitHub Pages can find them.</p>
+                        </div>
+                    </label>
+
+                    <label class="checkbox-container flex items-start gap-4 cursor-pointer group">
+                        <div class="relative flex-shrink-0 mt-1">
+                            <input type="checkbox" class="sr-only peer">
+                            <div class="checkmark h-6 w-6 border-2 border-slate-300 rounded-md transition-all group-hover:border-blue-400"></div>
+                        </div>
+                        <div class="label-text">
+                            <p class="font-bold">Connect your pages with navigation links.</p>
+                            <p class="text-sm text-slate-500">Add a link from <code>about.html</code> back to the home page (<code>index.html</code>), and a link from <code>index.html</code> to your other pages.</p>
+                        </div>
+                    </label>
+
+                    <label class="checkbox-container flex items-start gap-4 cursor-pointer group">
+                        <div class="relative flex-shrink-0 mt-1">
+                            <input type="checkbox" class="sr-only peer">
+                            <div class="checkmark h-6 w-6 border-2 border-slate-300 rounded-md transition-all group-hover:border-blue-400"></div>
+                        </div>
+                        <div class="label-text">
+                            <p class="font-bold">Create style.css and link it to BOTH pages.</p>
+                            <p class="text-sm text-slate-500">Use the <code>&lt;link&gt;</code> tag in the <code>&lt;head&gt;</code> of both HTML files.</p>
+                        </div>
+                    </label>
+
+                    <label class="checkbox-container flex items-start gap-4 cursor-pointer group">
+                        <div class="relative flex-shrink-0 mt-1">
+                            <input type="checkbox" class="sr-only peer">
+                            <div class="checkmark h-6 w-6 border-2 border-slate-300 rounded-md transition-all group-hover:border-blue-400"></div>
+                        </div>
+                        <div class="label-text">
+                            <p class="font-bold">Use Semantic Tags in your HTML.</p>
+                            <p class="text-sm text-slate-500">Include <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;footer&gt;</code>.</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm border-l-4 border-l-amber-500">
+                <h3 class="text-lg font-black uppercase tracking-widest text-amber-600 mb-6">
+                    Phase 3: GitHub Narrative (The Grade)
+                </h3>
+                <div class="space-y-4">
+                    <label class="checkbox-container flex items-start gap-4 cursor-pointer group">
+                        <div class="relative flex-shrink-0 mt-1">
+                            <input type="checkbox" class="sr-only peer">
+                            <div class="checkmark h-6 w-6 border-2 border-slate-300 rounded-md transition-all group-hover:border-blue-400"></div>
+                        </div>
+                        <div class="label-text">
+                            <p class="font-bold">Commit 1: Folder structure and docs.</p>
+                            <p class="text-sm text-slate-500">"Setup docs folder with scope and plan."</p>
+                        </div>
+                    </label>
+
+                    <label class="checkbox-container flex items-start gap-4 cursor-pointer group">
+                        <div class="relative flex-shrink-0 mt-1">
+                            <input type="checkbox" class="sr-only peer">
+                            <div class="checkmark h-6 w-6 border-2 border-slate-300 rounded-md transition-all group-hover:border-blue-400"></div>
+                        </div>
+                        <div class="label-text">
+                            <p class="font-bold">Commit 2: HTML structure.</p>
+                            <p class="text-sm text-slate-500">"Added index and about pages with navigation."</p>
+                        </div>
+                    </label>
+
+                    <label class="checkbox-container flex items-start gap-4 cursor-pointer group">
+                        <div class="relative flex-shrink-0 mt-1">
+                            <input type="checkbox" class="sr-only peer">
+                            <div class="checkmark h-6 w-6 border-2 border-slate-300 rounded-md transition-all group-hover:border-blue-400"></div>
+                        </div>
+                        <div class="label-text">
+                            <p class="font-bold">Commit 3: Styling and Final Polish.</p>
+                            <p class="text-sm text-slate-500">"Applied final CSS styles and updated README."</p>
+                        </div>
+                    </label>
+                </div>
+                <div class="mt-6 p-4 bg-amber-50 rounded-xl border border-amber-100">
+                    <p class="text-xs text-amber-800 font-bold uppercase tracking-wide">Reminder</p>
+                    <p class="text-sm text-amber-700">Commit history is 30% of your grade. Do not push all files at once!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course Plan Snippet -->
+        <section class="mt-12 pt-12 border-t border-slate-200">
+            <h4 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6 text-center">Course Plan HTML Integration: FOR INSTRUCTOR ONLY!</h4>
+            <div class="bg-slate-900 rounded-2xl p-6 overflow-x-auto shadow-inner">
+                <pre class="text-xs md:text-sm text-blue-300 code-font"><code>&lt;tr&gt;
+    &lt;td&gt;Module 08&lt;/td&gt;
+    &lt;td&gt;Project 03 Tutorial&lt;/td&gt;
+    &lt;td&gt;&lt;a href="CMPA_3301_COURSE_PLAN/CMPA_3301_PROJ_03_Tutorial.md" class="btn-link"&gt;View Tutorial&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;</code></pre>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-4xl mx-auto px-6 py-12 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6">
+        <p class="text-slate-400 text-sm font-medium">CMPA 3301 | Instructor Cheri Whalen, M.S. | © 2026</p>
+    </footer>
+
+</body>
+</html>
