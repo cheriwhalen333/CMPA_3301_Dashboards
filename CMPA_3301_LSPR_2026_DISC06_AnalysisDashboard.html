@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Discussion 06 Recap: The Cadence of Accountability</title>
+<!-- 
+  NOTE: This is the USER-FAVORITE FORMAT for Infographics. 
+  Key features: Energetic & Playful Palette, 2x2 Agility Matrix, Lexicon Pills, and Student Insight Cards.
+-->
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
@@ -161,7 +165,7 @@ body {
 
             <div class="quadrant bg-amber-50 border-2 border-amber-200">
                 <h4 class="font-bold text-amber-800 text-lg uppercase tracking-tighter">Over-Managed</h4>
-                <p class="text-[10px] mt-2 text-amber-700">Kind Environment + High Cadence.<br>Leads to micromanagement on simple tasks.</p>
+                <p class="text-[10px] mt-2 text-amber-700">Kind Environment + High Cadence.<br>Micromanagement on simple tasks.</p>
             </div>
 
             <div></div> 
@@ -218,10 +222,10 @@ body {
         </div>
     </section>
 
-    <!-- EXPANDED SECTION: COLLECTIVE WISDOM -->
+    <!-- COLLECTIVE WISDOM SECTION -->
     <section class="material-card p-8 md:p-12 border-t-8 border-accent">
         <h2 class="text-3xl font-bold mb-8 text-blue-900 text-center uppercase tracking-tighter">Collective Wisdom: Peer Perspectives</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div class="insight-card border-blue-400">
                 <p class="text-xs font-black text-blue-600 uppercase mb-2">Adrian</p>
                 <p class="text-[11px] text-slate-600 italic leading-snug">"In IT, nothing goes as planned—adaptability is the key to managing change."</p>
@@ -262,7 +266,6 @@ body {
                 <p class="text-xs font-black text-blue-900 uppercase mb-2">Kassel</p>
                 <p class="text-[11px] text-slate-600 italic leading-snug">"Celebrating wins while solving obstacles builds more trust than shaming failures."</p>
             </div>
-            <!-- Added 5 New Students -->
             <div class="insight-card border-blue-400">
                 <p class="text-xs font-black text-blue-600 uppercase mb-2">Donna</p>
                 <p class="text-[11px] text-slate-600 italic leading-snug">"Accountability isn't one-size-fits-all; cadence should adjust based on project phase."</p>
@@ -282,6 +285,26 @@ body {
             <div class="insight-card border-blue-900">
                 <p class="text-xs font-black text-blue-900 uppercase mb-2">Trish</p>
                 <p class="text-[11px] text-slate-600 italic leading-snug">"SLA/KPI metrics force accountability to be measurable rather than assumed."</p>
+            </div>
+            <div class="insight-card border-blue-400">
+                <p class="text-xs font-black text-blue-600 uppercase mb-2">Latoya</p>
+                <p class="text-[11px] text-slate-600 italic leading-snug">"Accountability sessions allow for identifying and resolving specific roadblocks through a detailed, supportive approach."</p>
+            </div>
+            <div class="insight-card border-pink-400">
+                <p class="text-xs font-black text-pink-600 uppercase mb-2">Briseyda</p>
+                <p class="text-[11px] text-slate-600 italic leading-snug">"A frequent cadence creates rapid feedback loops that keep projects moving when conditions are uncertain."</p>
+            </div>
+            <div class="insight-card border-amber-400">
+                <p class="text-xs font-black text-amber-600 uppercase mb-2">Cristian</p>
+                <p class="text-[11px] text-slate-600 italic leading-snug">"Clearer outcomes come from short check-ins where everyone knows their next steps."</p>
+            </div>
+            <div class="insight-card border-emerald-400">
+                <p class="text-xs font-black text-emerald-600 uppercase mb-2">Landon</p>
+                <p class="text-[11px] text-slate-600 italic leading-snug">"Steady rhythm keeps teams engaged and moving forward even in environments of high uncertainty."</p>
+            </div>
+            <div class="insight-card border-blue-900">
+                <p class="text-xs font-black text-blue-900 uppercase mb-2">Susan</p>
+                <p class="text-[11px] text-slate-600 italic leading-snug">"Daily touchpoints allow teams to adapt in real time and address small issues before they grow."</p>
             </div>
         </div>
     </section>
@@ -317,6 +340,7 @@ body {
 </div>
 
 <script>
+// Logic to handle 16-character wrapping for long labels
 function wrapLabel(label) {
     if (label.length <= 16) return label;
     const words = label.split(' ');
@@ -334,12 +358,17 @@ function wrapLabel(label) {
     return lines;
 }
 
+// Tooltip configuration to handle multi-line labels
 const customTooltip = {
     callbacks: {
         title: function(tooltipItems) {
             const item = tooltipItems[0];
             let label = item.chart.data.labels[item.dataIndex];
-            return Array.isArray(label) ? label.join(' ') : label;
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            } else {
+              return label;
+            }
         }
     }
 };
